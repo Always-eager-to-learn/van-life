@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
+    --font-size-0: 1rem;
     --font-size-1: 1.1rem;
     --font-size-2: 1.3rem;
     --font-size-3: 1.7rem;
@@ -41,6 +42,7 @@ main{
 }
 
 button{
+    font-family: inherit;
     cursor: pointer;
     border: none;
 }
@@ -197,4 +199,87 @@ footer > p{
     .about-section > p{
         font-size: var(--font-size-m-1);
     }
+}
+
+.main-vans > h1{
+    margin: 0;
+    padding: 29px 24px;
+    padding-bottom: 24px;
+}
+
+.btn-container{
+    margin-left: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 45px;
+}
+
+.btn-container > button{
+    background-color: #FFEAD0;
+    color: #4D4D4D;
+    font-size: var(--font-size-0);
+    width: 104px;
+    height: 37px;
+    padding: 0 6px;
+    border-radius: 6px;
+}
+
+.btn-container > .normal:hover{
+    background-color: #a2a0a0;
+    color: #FFEAD0;
+    box-shadow: 0 0 2px 2px hsl(34, 24%, 66%);
+}
+
+.btn-container > .special, .btn-container > .special:hover{
+    text-decoration: underline;
+    background-color: #FFF7ED;
+    width: 134px;
+}
+
+.vans-container{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 1.3em;
+    padding: 7px;
+}
+
+.vans-container > a, .vans-container > a:visited{
+    color: rgb(37, 37, 213)
+}
+
+.van-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1px;
+}
+
+.van-detail > img{
+    width: 239px;
+    margin-bottom: 5px;
+}
+
+.van-detail > div{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    font-size: calc(var(--font-size-2) - 0.1rem);
+    font-weight: 600;
+}
+
+.van-detail > .per-day{
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    font-size: var(--font-size-0);
+    font-weight: 500;
+}
+
+.type-button{
+    color: #FFEAD0;
+    width: 85px;
+    border-radius: 6px;
+    padding: 8px 11px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
