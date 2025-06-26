@@ -64,7 +64,7 @@ a, a:visited{
 
 .main-home{
     background-color: #00000075;
-    background-image: url('./assets/image\ 53.png');
+    background-image: url('./assets/windowimage.png');
     background-size: cover;
     display: flex;
     flex-direction: column;
