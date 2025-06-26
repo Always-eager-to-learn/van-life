@@ -31,10 +31,11 @@ export default function Vans(){
                         <span>/day</span>
                     </div>
                     <div>
-                        <button 
+                        <div 
                             style={styles}
                             className='type-button'
-                        >{element.type}</button>
+                        >{element.type}
+                        </div>
                     </div>
                 </section>
             </Link>
