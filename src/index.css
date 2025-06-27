@@ -262,7 +262,7 @@ footer > p{
 
 .vans-container{
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 2fr 2fr 2fr;
     gap: 1.3em;
     padding: 7px;
 }
@@ -352,13 +352,14 @@ footer > p{
     margin-top: 7px;
     margin: 0;
     font-size: var(--font-size-2);
+    padding: 6px 15px;
 }
 
 .secondary-heading > span{
     font-size: var(--font-size-0);
 }
 
-.secondary-heading > p{
+.van-container > p{
     font-weight: 600;
 }
 
@@ -439,7 +440,8 @@ footer > p{
         align-items: center;
     }
 
-    .about-container > h2{
+    .about-container > h2, 
+    .van-container > h3{
         font-size: var(--font-size-m-2);
     }
 
@@ -454,6 +456,57 @@ footer > p{
 
     .about-section > section{
         padding: 5px 4px;
+    }
+
+    .main-vans > h1{
+        font-size: var(--font-size-m-3);
+    }
+
+    .btn-container > button{
+        font-size: var(--font-size-m-2);
+        width: 15%;
+        padding: 4px;
+    }
+
+    .vans-container{
+        grid-template-columns: 1fr;
+    }
+
+    .van-detail > img{
+        width: 75%;
+    }
+
+    .van-detail > div{
+        width: 75%;
+    }
+
+    .van-container{
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .van-container > div{
+        align-self: flex-start;
+        margin: 0 11%;
+    }
+
+    .van-container > img{
+        width: 80%;
+    }
+
+    .van-container > h1{
+        font-size: var(--font-size-m-3);
+    }
+
+    .van-container > p{
+        font-size: var(--font-size-m-1);
+        padding: 4px 6%;
+    }
+
+    .van-container > button{
+        width: 50%;
     }
 }
 
@@ -474,5 +527,52 @@ footer > p{
     .related-info{
         padding: 25px;
         bottom: 20%;
+    }
+}
+
+@media (575px < width < 810px){
+    .vans-container{
+        grid-template-columns: 2fr 2fr;
+    }
+
+    .van-detail > div{
+        width: 70%;
+    }
+
+    .van-detail > img{
+        width: 60%;
+        margin-bottom: 5px;
+    }
+}
+
+@media (width < 412px){
+    .btn-container{
+        display: grid;
+        gap: 6px;
+        grid-template-columns: 2fr 2fr;
+    }
+
+    .btn-container > button{
+        font-size: var(--font-size-m-2);
+        width: 70%;
+        padding: 4px;
+    }
+}
+
+@media (415px < width < 575px){
+    .van-detail > img{
+        width: 45%;
+    }
+
+    .van-detail > div{
+        width: 50%;
+    }
+
+    .van-container > img{
+        width: 60%;
+    }
+
+    .van-container > div{
+        margin: 0 23%;
     }
 }
