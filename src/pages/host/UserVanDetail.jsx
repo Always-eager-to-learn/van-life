@@ -43,12 +43,27 @@ export default function UserVanDetail(){
                             <p>${vanDetail.price} <span>/day</span></p>
                         </div>
                     </section>
-                    <section>
+
+                    <section className={styles.flex_nav}>
                         <NavLink>Details</NavLink>
                         <NavLink>Pricing</NavLink>
                         <NavLink>Photos</NavLink>
                     </section>
-                    <section></section>
+                    
+                    <section className={styles.van_info}>
+                        <h3>
+                            <span className={styles.bold}>Name: </span> {vanDetail.name}
+                        </h3>
+                        <h3 className={styles.capitalize}>
+                            <span className={styles.bold}>Category: </span> {vanDetail.type}
+                        </h3>
+                        <p>
+                            <span className={styles.bold}>Description: </span> {vanDetail.description} 
+                        </p>
+                        <p>
+                            <span className={styles.bold}>Visibility: </span>Public
+                        </p>
+                    </section>
                 </article>
             : <h2>Van Details Loading Please wait...</h2>}
         </main>

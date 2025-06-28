@@ -1,3 +1,7 @@
+main{
+    padding: 5px;
+}
+
 .van_container{
     padding: 20px;
     color: #161616;
@@ -75,7 +79,7 @@
 
     .van_container > p{
         font-size: var(--font-size-m-1);
-        padding: 4px 6%;
+        padding: 18px 6%;
     }
 
     .van_container > button{
@@ -110,7 +114,7 @@
 
     .van_container > p{
         font-size: var(--font-size-m-1);
-        padding: 4px 6%;
+        padding: 20px 10%;
     }
 
     .van_container > button{

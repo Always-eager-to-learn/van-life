@@ -72,6 +72,10 @@ footer > p{
 }
 
 @media (width < 576px) {
+    .back_tick{
+        padding: 15px 8px;
+    }
+
     .home_link{
         font-size: var(--font-size-m-3);
     }

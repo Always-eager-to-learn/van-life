@@ -1,3 +1,11 @@
+.bold{
+    font-weight: bold;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
 .user_van_detail{
     padding: 15px;
 }
@@ -13,19 +21,24 @@
     border-radius: 10px;
 }
 
+.flex_nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .flex{
     display: flex;
     gap: 2em;
     align-items: center;
 }
 
-.flex > div{
-    padding: 14px;
-}
-
 .flex > img{
     width: 45%;
     border-radius: 10px;
+}
+
+.flex_div{
+    padding: 14px;
 }
 
 .flex_div > h1, .flex_div > p{
@@ -44,4 +57,49 @@
 .flex_div > p > span{
     font-size: var(--font-size-1);
     font-weight: 300;
+}
+
+.van_info{
+    padding: 7px;
+    font-size: calc(var(--font-size-1) + 0.1rem)
+}
+
+.van_info > h3, .van_info > p{
+    font-weight: 500;
+}
+
+.van_info > p{
+    padding: 0 0 14px 0;
+}
+
+@media (width < 576px) {
+    .van_detail{
+        padding: 5px 6px;
+    }
+
+    .van_info{
+        font-size: var(--font-size-m-1);
+    }
+
+    .van_detail{
+        gap: 0.5em;
+    }
+
+    .flex{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+    }
+
+    .flex > img{
+        width: 60%;
+    }
+
+    .flex_div{
+        width: 100%;
+    }
+
+    /* .flex_div > div{
+    
+    }*/
 }

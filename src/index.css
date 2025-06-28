@@ -115,4 +115,9 @@ nav > section > a:hover{
     h1{
         font-size: var(--font-size-m-4);
     }
+
+    .type_button{
+        font-size: var(--font-size-m-1);
+        width: 25%;
+    }
 }
