@@ -1,18 +1,25 @@
 import { Link } from 'react-router-dom'
 import Image from '../assets/windowimage.png'
+import styles from './Home.module.css'
 
 export default function Home(){
     return (
         <>
-            <main className="main-home">
-                <section className="main-section">
-                    <div className="image-container">
-                        <img src={Image} alt="" />
-                        <div className="related-info">
+            <main className={styles.main_home}>
+
+                <section className={styles.main_section}>
+
+                    <div className={styles.image_container}>
+
+                        <img src={Image} alt="Image of a mountain from a van's perspective" />
+                        <div className={styles.related_info}>
+
                             <h1>You got the travel plans, we got the travel vans.</h1>
                             <p>Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip</p>
-                            <Link to='/vans'><button className="main-button">Find your van</button></Link>
+
+                            <Link to='/vans'><button className={styles.main_button}>Find your van</button></Link>
                         </div>
+                        
                     </div>
                 </section>
             </main>

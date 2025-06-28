@@ -1,0 +1,145 @@
+.main_vans > h1{
+    margin: 0;
+    padding: 29px 24px;
+    padding-bottom: 24px;
+}
+
+.btn_container{
+    margin-left: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 45px;
+}
+
+.btn_container > button{
+    background-color: #FFEAD0;
+    color: #4D4D4D;
+    font-size: var(--font-size-0);
+    width: 104px;
+    height: 37px;
+    padding: 0 6px;
+    border-radius: 6px;
+}
+
+.btn_container > .normal:hover{
+    background-color: #a2a0a0;
+    color: #FFEAD0;
+    box-shadow: 0 0 2px 2px hsl(34, 24%, 66%);
+}
+
+.btn_container > .special, .btn_container > .special:hover{
+    text-decoration: underline;
+    background-color: #FFF7ED;
+    width: 134px;
+}
+
+.vans_container{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    gap: 1.3em;
+    padding: 7px;
+}
+
+.vans_container > a, .vans_container > a:visited{
+    color: rgb(37, 37, 213)
+}
+
+.vans_container > a:hover{
+    box-shadow: 0 0 2px 2px hsl(34, 9%, 69%);
+}
+
+.van_detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1px;
+}
+
+.van_detail > img{
+    width: 239px;
+    margin-bottom: 5px;
+}
+
+.van_detail > div{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    font-size: calc(var(--font-size-2) - 0.1rem);
+    font-weight: 600;
+}
+
+.van_detail > .per_day{
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    font-size: var(--font-size-0);
+    font-weight: 500;
+}
+
+/* Mobile Version */
+@media (width < 576px) {
+    .vans_container{
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .main_vans > h1{
+        font-size: var(--font-size-m-3);
+    }
+
+    .btn_container > button{
+        font-size: var(--font-size-m-2);
+        width: 15%;
+        padding: 4px;
+    }
+
+    .van_detail > img{
+        width: 75%;
+    }
+
+    .van_detail > div{
+        width: 75%;
+    }
+}
+
+@media (575px < width < 810px){
+    .vans_container{
+        grid-template-columns: 2fr 2fr;
+    }
+
+}
+
+@media (575px < width < 810px){
+    .van_detail > div{
+        width: 70%;
+    }
+
+    .van_detail > img{
+        width: 60%;
+        margin-bottom: 5px;
+    }
+}
+
+@media (width < 412px){
+    .btn_container{
+        display: grid;
+        gap: 6px;
+        grid-template-columns: 2fr 2fr;
+    }
+
+    .btn_container > button{
+        font-size: var(--font-size-m-2);
+        width: 70%;
+        padding: 4px;
+    }
+}
+
+@media (415px < width < 575px){
+    .van_detail > img{
+        width: 45%;
+    }
+
+    .van_detail > div{
+        width: 50%;
+    }
+}

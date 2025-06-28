@@ -1,0 +1,87 @@
+/* Html Elements */
+
+footer{
+    background-color: #252525;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > p{
+    color: #AAAAAA;   
+}
+
+/* Common Name Classes */
+
+.active_link{
+    color: #161616;
+    font-weight: 700;
+    background-color: #ebebeb;
+}
+
+/* Specific class styles */
+
+.nav_section{
+    display: flex;
+    width: 275px;
+    justify-content: space-evenly;
+}
+
+.nav_section > a{
+    width: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.home_link{
+    font-size: var(--font-size-3);
+    font-weight: 900;
+}
+
+.nav_section > a.active_link:hover{
+    background-color: #4893b6;
+    color: #ebebeb;
+    box-shadow: 0 0 2px 3px hsl(30, 11%, 79%)
+}
+
+.host_nav{
+    color: #000;
+    justify-content: space-evenly;
+}
+
+.host_nav > a{
+    width: 110px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.host_nav > a.active_link:hover{
+    background-color: hsl(25, 77%, 80%);
+    box-shadow: 0 0 2px 3px hsl(30, 11%, 79%);
+}
+
+.back_tick{
+    margin: 0;
+    padding: 15px 21px;
+}
+
+.back_tick > img{
+    margin-right: 5px;
+}
+
+@media (width < 576px) {
+    .home_link{
+        font-size: var(--font-size-m-3);
+    }
+
+    .host_nav{
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
+
+    .host_nav > a{
+        width: 100%;
+    }
+}

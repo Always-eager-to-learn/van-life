@@ -1,3 +1,5 @@
+import './Component.module.css'
+
 export default function Footer(){
     return (
         <footer>

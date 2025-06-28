@@ -1,15 +1,16 @@
 import { Link, NavLink } from 'react-router-dom'
+import styles from './Component.module.css'
 
 export default function Header(){
 
     function setClassName(object){
-        return object.isActive ? 'active-link' : null
+        return object.isActive ? styles.active_link : null
     }
 
     return (
         <nav>
-            <Link to='/' className='home-link'>#VANLIFE</Link>
-            <section className='nav-section'>
+            <Link to='/' className={styles.home_link}>#VANLIFE</Link>
+            <section className={styles.nav_section}>
                 <NavLink to='/host' className={setClassName}>
                 Host</NavLink>
                 <NavLink to='/about' className={setClassName}>

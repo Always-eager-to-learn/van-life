@@ -1,14 +1,15 @@
 import { Outlet, NavLink } from 'react-router-dom'
+import styles from './Component.module.css'
 
 export default function HostHeader(){
 
     function setClassName(obj){
-        return obj.isActive ? 'active-link' : null
+        return obj.isActive ? styles.active_link : null
     }
 
     return (
         <>
-            <nav className='host-nav'>
+            <nav className={styles.host_nav}>
                 <NavLink to='/host' className={setClassName} end>
                     Dashboard
                 </NavLink>

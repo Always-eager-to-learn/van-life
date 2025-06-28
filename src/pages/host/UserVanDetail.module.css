@@ -1,0 +1,47 @@
+.user_van_detail{
+    padding: 15px;
+}
+
+.van_detail{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    justify-items: center;
+    padding: 20px 35px;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+.flex{
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.flex > div{
+    padding: 14px;
+}
+
+.flex > img{
+    width: 45%;
+    border-radius: 10px;
+}
+
+.flex_div > h1, .flex_div > p{
+    padding-left: 0;
+}
+
+.flex_div > p{
+    padding-top: 0;
+    font-size: var(--font-size-3);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.flex_div > p > span{
+    font-size: var(--font-size-1);
+    font-weight: 300;
+}

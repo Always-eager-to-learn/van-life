@@ -1,0 +1,129 @@
+.van_container{
+    padding: 20px;
+    color: #161616;
+}
+
+.van_container > img{
+    width: 500px;
+    border-radius: 7px;
+    padding-bottom: 35px;
+}
+
+.van_container > h1{
+    font-size: var(--font-size-4);
+    margin: 0;
+    margin-top: 15px;
+    padding-bottom: 0.5rem;
+}
+
+.van_container > p{
+    font-weight: 600;
+    padding: 5px 1rem;
+}
+
+.van_container > button{
+    background-color: #FF8C38;
+    color: hsl(0, 100%, 100%);
+    width: 100%;
+    padding: 14px;
+    font-size: var(--font-size-1);
+    border-radius: 6px;
+}
+
+.van_container > button:hover{
+    background-color: hsla(0, 3%, 94%, 0.905);
+    color: hsl(25, 93%, 51%);
+    box-shadow: 0 0 2px 2px hsl(33, 24%, 76%);
+    font-weight: 700;
+}
+
+.secondary_heading{
+    margin-top: 7px;
+    margin: 0;
+    font-size: var(--font-size-2);
+    padding: 6px 15px;
+}
+
+.secondary_heading > span{
+    font-size: var(--font-size-0);
+}
+
+@media (width < 576px){
+    .van_container > h3{
+        font-size: var(--font-size-m-2);
+    }
+
+    .van_container{
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .van_container > div{
+        align-self: flex-start;
+        margin: 0 11%;
+    }
+
+    .van_container > img{
+        width: 80%;
+    }
+
+    .van_container > h1{
+        font-size: var(--font-size-m-3);
+    }
+
+    .van_container > p{
+        font-size: var(--font-size-m-1);
+        padding: 4px 6%;
+    }
+
+    .van_container > button{
+        width: 50%;
+    }
+}
+
+@media (575px < width < 810px){
+    .van_container > h3{
+        font-size: var(--font-size-m-2);
+    }
+
+    .van_container{
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .van_container > div{
+        align-self: flex-start;
+        margin: 0 11%;
+    }
+
+    .van_container > img{
+        width: 80%;
+    }
+
+    .van_container > h1{
+        font-size: var(--font-size-m-3);
+    }
+
+    .van_container > p{
+        font-size: var(--font-size-m-1);
+        padding: 4px 6%;
+    }
+
+    .van_container > button{
+        width: 50%;
+    }
+}
+
+@media (415px < width < 575px){
+    .van_container > img{
+        width: 60%;
+    }
+
+    .van_container > div{
+        margin: 0 23%;
+    }
+}

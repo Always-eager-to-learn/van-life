@@ -1,7 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import Arrow from '../../assets/arrow.png'
+import BackArrow from '../../components/BackArrow'
 import clsx from 'clsx'
+import pageStyles from './VanDetail.module.css'
 
 export default function VanDetail(){
     const params = useParams()
@@ -24,20 +25,17 @@ export default function VanDetail(){
     }, [params.id])
 
     return (
-        <main className='main-van'>
-           <p> 
-                <img src={Arrow} alt="Arrow image" /> 
-                <Link to='/vans'>Back to all vans</Link>
-            </p>
+        <main>
+           <BackArrow location='/vans' pageName='vans' />
 
             {van !== null ? (
-                 <section className='van-container'>
-                    <img src={van.imageUrl} alt={`${van.name} van`} />
+                 <section className={pageStyles.van_container}>
+                    <img src={van.imageUrl} alt={`Image of the ${van.name} van.`} />
     
-                    <div style={styles}>{van.type}</div>
+                    <div style={styles} className='type_button'>{van.type}</div>
     
                     <h1>{van.name}</h1>
-                    <h3 className='secondary-heading'>
+                    <h3 className={pageStyles.secondary_heading}>
                         ${van.price}
                         <span>
                             /day
