@@ -1,0 +1,23 @@
+import { useOutletContext } from 'react-router-dom'
+import styles from './VanDetail.module.css'
+
+export default function Details(){
+    const { vanDetails } = useOutletContext()
+
+    return (
+        <section className={styles.van_info}>
+            <p className="font-medium">
+                <span className={styles.bold}>Name: </span> {vanDetails.name}
+            </p>
+            <p className={`${styles.capitalize} font-medium`}>
+                <span className={styles.bold}>Category: </span> {vanDetails.type}
+            </p>
+            <p className="font-medium">
+                <span className={styles.bold}>Description: </span> {vanDetails.description} 
+            </p>
+            <p className="font-medium">
+                <span className={styles.bold}>Visibility: </span>Public
+            </p>
+        </section>
+    )
+}

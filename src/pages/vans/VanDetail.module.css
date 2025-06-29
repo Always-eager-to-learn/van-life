@@ -1,4 +1,4 @@
-main{
+.main_container{
     padding: 5px;
 }
 
@@ -14,15 +14,13 @@ main{
 }
 
 .van_container > h1{
-    font-size: var(--font-size-4);
     margin: 0;
-    margin-top: 15px;
     padding-bottom: 0.5rem;
 }
 
 .van_container > p{
     font-weight: 600;
-    padding: 5px 1rem;
+    padding: 15px 1rem;
 }
 
 .van_container > button{
@@ -30,7 +28,6 @@ main{
     color: hsl(0, 100%, 100%);
     width: 100%;
     padding: 14px;
-    font-size: var(--font-size-1);
     border-radius: 6px;
 }
 
@@ -44,18 +41,10 @@ main{
 .secondary_heading{
     margin-top: 7px;
     margin: 0;
-    font-size: var(--font-size-2);
     padding: 6px 15px;
 }
 
-.secondary_heading > span{
-    font-size: var(--font-size-0);
-}
-
 @media (width < 576px){
-    .van_container > h3{
-        font-size: var(--font-size-m-2);
-    }
 
     .van_container{
         padding: 8px;
@@ -73,13 +62,9 @@ main{
         width: 80%;
     }
 
-    .van_container > h1{
-        font-size: var(--font-size-m-3);
-    }
-
     .van_container > p{
-        font-size: var(--font-size-m-1);
-        padding: 18px 6%;
+        font-weight: 400;
+        padding: 18px 4%;
     }
 
     .van_container > button{
@@ -88,9 +73,6 @@ main{
 }
 
 @media (575px < width < 810px){
-    .van_container > h3{
-        font-size: var(--font-size-m-2);
-    }
 
     .van_container{
         padding: 8px;
@@ -108,12 +90,8 @@ main{
         width: 80%;
     }
 
-    .van_container > h1{
-        font-size: var(--font-size-m-3);
-    }
-
     .van_container > p{
-        font-size: var(--font-size-m-1);
+        font-weight: 400;
         padding: 20px 10%;
     }
 

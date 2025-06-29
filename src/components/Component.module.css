@@ -35,7 +35,6 @@ footer > p{
 }
 
 .home_link{
-    font-size: var(--font-size-3);
     font-weight: 900;
 }
 
@@ -65,19 +64,24 @@ footer > p{
 .back_tick{
     margin: 0;
     padding: 15px 21px;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-items: center;
+    justify-items: start;
 }
 
 .back_tick > img{
     margin-right: 5px;
 }
 
+.back_tick > a > p{
+    padding: 0;
+    margin: 0;
+}
+
 @media (width < 576px) {
     .back_tick{
         padding: 15px 8px;
-    }
-
-    .home_link{
-        font-size: var(--font-size-m-3);
     }
 
     .host_nav{

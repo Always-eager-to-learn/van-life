@@ -18,8 +18,8 @@ export default function UserVans(){
                 <Link to={`/host/vans/${element.id}`} key={element.id}  className={styles.host_container}>
                     <img src={element.imageUrl} alt={`The image of ${element.name} van`} />
                     <div className={styles.host_div}>
-                            <h3>{element.name}</h3>
-                            <p>${element.price} <span>/day</span></p>
+                            <h3 className='font-semi-big'>{element.name}</h3>
+                            <p className='font-small'>${element.price} <span className='font-very-small'>/day</span></p>
                     </div>
                 </Link>
             )

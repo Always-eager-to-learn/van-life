@@ -10,6 +10,9 @@ import Income from './pages/host/Income'
 import Reviews from './pages/host/Reviews'
 import UserVans from './pages/host/UserVans'
 import UserVanDetail from './pages/host/UserVanDetail'
+import Details from './pages/host/VanDetail/Details'
+import Pricing from './pages/host/VanDetail/Pricing'
+import Photos from './pages/host/VanDetail/Photos'
 import './server'
 
 export default function App(){
@@ -30,7 +33,11 @@ export default function App(){
                         <Route path='income' element={<Income />} />
                         <Route path='reviews' element={<Reviews />} />
                         <Route path='vans' element={<UserVans />} />
-                        <Route path='vans/:id' element={<UserVanDetail />} />
+                        <Route path='vans/:id' element={<UserVanDetail />}>
+                            <Route index element={<Details />} />
+                            <Route path='pricing' element={<Pricing />} />
+                            <Route path='photos' element={<Photos />} />
+                        </Route>
                     </Route>
                 </Route>
             </Routes>

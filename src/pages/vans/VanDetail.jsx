@@ -25,8 +25,8 @@ export default function VanDetail(){
     }, [params.id])
 
     return (
-        <main>
-           <BackArrow location='/vans' pageName='vans' />
+        <main className={pageStyles.main_container}>
+           <BackArrow pageName='vans' />
 
             {van !== null ? (
                  <section className={pageStyles.van_container}>
@@ -34,19 +34,19 @@ export default function VanDetail(){
     
                     <div style={styles} className='type_button'>{van.type}</div>
     
-                    <h1>{van.name}</h1>
-                    <h3 className={pageStyles.secondary_heading}>
+                    <h1 className='font-big'>{van.name}</h1>
+                    <h3 className={`${pageStyles.secondary_heading} font-medium`}>
                         ${van.price}
-                        <span>
+                        <span className='font-very-small'>
                             /day
                         </span>
                     </h3>
     
-                    <p>
+                    <p className='font-small'>
                         {van.description}
                     </p>
     
-                    <button>
+                    <button className='font-small'>
                         Rent this van
                     </button>
                 </section>

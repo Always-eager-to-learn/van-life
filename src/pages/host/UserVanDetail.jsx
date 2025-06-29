@@ -1,10 +1,14 @@
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink, useParams, Outlet } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import BackArrow from '../../components/BackArrow'
 import styles from './UserVanDetail.module.css'
 import clsx from 'clsx'
 
 export default function UserVanDetail(){
+
+    function setActive(object){
+        return `${(object.isActive ? styles.active_link : '')} font-medium`
+    }
 
     const param = useParams()
     const [vanDetail, setVanDetail] = useState(null)
@@ -29,7 +33,7 @@ export default function UserVanDetail(){
 
     return (
         <main className={styles.user_van_detail}>
-            <BackArrow location="/host/vans" pageName="host vans"/>
+            <BackArrow pageName="host vans"/>
             {vanDetail !== null ? 
                 <article className={styles.van_detail}>
                     <section className={styles.flex}>
@@ -39,31 +43,35 @@ export default function UserVanDetail(){
                                 style={backgroundStyles}
                                 className="type_button"
                             >{vanDetail.type}</div>
-                            <h1>{vanDetail.name}</h1>
-                            <p>${vanDetail.price} <span>/day</span></p>
+                            <h1 className="font-big">{vanDetail.name}</h1>
+                            <p className="font-medium">${vanDetail.price} <span className="font-very-small">/day</span></p>
                         </div>
                     </section>
 
                     <section className={styles.flex_nav}>
-                        <NavLink>Details</NavLink>
-                        <NavLink>Pricing</NavLink>
-                        <NavLink>Photos</NavLink>
-                    </section>
+                        <NavLink 
+                            className={setActive}
+                            to='.'
+                            end={true}
+                        >
+                            Details
+                        </NavLink>
+                        <NavLink 
+                            to='pricing'
+                            className={setActive}
+                        >
+                            Pricing
+                        </NavLink>
+                        <NavLink
+                            to='photos'
+                            className={setActive}
+                        >
+                            Photos
+                        </NavLink>
+                   </section>
+
+                    <Outlet context={{'vanDetails': vanDetail}}/>
                     
-                    <section className={styles.van_info}>
-                        <h3>
-                            <span className={styles.bold}>Name: </span> {vanDetail.name}
-                        </h3>
-                        <h3 className={styles.capitalize}>
-                            <span className={styles.bold}>Category: </span> {vanDetail.type}
-                        </h3>
-                        <p>
-                            <span className={styles.bold}>Description: </span> {vanDetail.description} 
-                        </p>
-                        <p>
-                            <span className={styles.bold}>Visibility: </span>Public
-                        </p>
-                    </section>
                 </article>
             : <h2>Van Details Loading Please wait...</h2>}
         </main>

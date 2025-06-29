@@ -1,11 +1,3 @@
-.bold{
-    font-weight: bold;
-}
-
-.capitalize{
-    text-transform: capitalize;
-}
-
 .user_van_detail{
     padding: 15px;
 }
@@ -24,6 +16,25 @@
 .flex_nav{
     display: flex;
     justify-content: space-evenly;
+}
+
+.flex_nav > a{
+    width: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.flex_nav > .active_link{
+    text-decoration: underline;
+    font-weight: 600;
+    background-color: hsl(191, 76%, 89%);
+    color: hsl(0, 0%, 35%);
+}
+
+.flex_nav > .active_link:hover{
+    background-color: hsl(0, 100%, 95%);
+    color: hsl(226, 96%, 63%);
+    box-shadow: 0 0 3px 3px #e1dad1;
 }
 
 .flex{
@@ -47,7 +58,6 @@
 
 .flex_div > p{
     padding-top: 0;
-    font-size: var(--font-size-3);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -55,30 +65,12 @@
 }
 
 .flex_div > p > span{
-    font-size: var(--font-size-1);
     font-weight: 300;
-}
-
-.van_info{
-    padding: 7px;
-    font-size: calc(var(--font-size-1) + 0.1rem)
-}
-
-.van_info > h3, .van_info > p{
-    font-weight: 500;
-}
-
-.van_info > p{
-    padding: 0 0 14px 0;
 }
 
 @media (width < 576px) {
     .van_detail{
-        padding: 5px 6px;
-    }
-
-    .van_info{
-        font-size: var(--font-size-m-1);
+        padding: 14px 6px;
     }
 
     .van_detail{
@@ -98,8 +90,4 @@
     .flex_div{
         width: 100%;
     }
-
-    /* .flex_div > div{
-    
-    }*/
 }

@@ -1,0 +1,56 @@
+/* Details Page */
+
+.bold{
+    font-weight: bold;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+
+.van_info{
+    padding: 7px;
+}
+
+.van_info > p{
+    font-weight: 500;
+}
+
+.van_info > p{
+    padding: 4px 0 14px 0;
+}
+
+/* Photos Page */
+
+.photo_container{
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr;
+    gap: 1.1em
+}
+
+.photo_container > img{
+    width: 75%;
+    border-radius: 15px;
+}
+
+/* Mobile Version */
+@media (width < 576px) {
+    .photo_container{
+        padding: 20px;
+        grid-template-columns: 2fr;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .photo_container > img{
+        width: 60%;
+    }
+}
+
+@media (575px < width < 810px){
+    .photo_container{
+        padding: 20px;
+        grid-template-columns: 2fr 2fr;
+    }
+}

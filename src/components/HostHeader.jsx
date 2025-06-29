@@ -4,22 +4,22 @@ import styles from './Component.module.css'
 export default function HostHeader(){
 
     function setClassName(obj){
-        return obj.isActive ? styles.active_link : null
+        return `${obj.isActive ? styles.active_link : null} font-medium`
     }
 
     return (
         <>
             <nav className={styles.host_nav}>
-                <NavLink to='/host' className={setClassName} end>
+                <NavLink to='.' className={setClassName} end >
                     Dashboard
                 </NavLink>
-                <NavLink to='/host/income' className={setClassName}>
+                <NavLink to='income' className={setClassName}>
                     Income
                 </NavLink>
-                <NavLink to='/host/vans' className={setClassName}>
+                <NavLink to='vans' className={setClassName}>
                     Vans
                 </NavLink>
-                <NavLink to='/host/reviews' className={setClassName}>
+                <NavLink to='reviews' className={setClassName}>
                     Reviews
                 </NavLink>
             </nav>

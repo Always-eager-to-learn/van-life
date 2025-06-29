@@ -27,17 +27,17 @@ export default function Vans(){
                 <Link to={`/vans/${element.id}`} key={element.id}>
                     <section className={pageStyles.van_detail}>
                         <img src={element.imageUrl} alt={`This is a ${element.name} van picture.`} />
-                        <div>
+                        <div className='font-medium'>
                             <span>{element.name}</span>
                             <span>${element.price}</span>
                         </div>
-                        <div className={pageStyles.per_day}>
+                        <div className={`${pageStyles.per_day} font-very-small`}>
                             <span>/day</span>
                         </div>
                         <div>
                             <div 
                                 style={styles}
-                                className='type_button'
+                                className='type_button font-small'
                             >{element.type}
                             </div>
                         </div>
@@ -49,12 +49,12 @@ export default function Vans(){
 
     return (
         <main className={pageStyles.main_vans}>
-            <h1>Explore our van options</h1>
+            <h1 className='font-big'>Explore our van options</h1>
             <section className={pageStyles.btn_container}>
-                <button className={pageStyles.normal}>Simple</button>
-                <button className={pageStyles.normal}>Luxury</button>
-                <button className={pageStyles.normal}>Rugged</button>
-                <button className={pageStyles.special}>
+                <button className={`${pageStyles.normal} font-small`}>Simple</button>
+                <button className={`${pageStyles.normal} font-small`}>Luxury</button>
+                <button className={`${pageStyles.normal} font-small`}>Rugged</button>
+                <button className={`${pageStyles.special} font-small`}>
                     Clear all filters
                 </button>
             </section>

@@ -14,7 +14,6 @@
 .btn_container > button{
     background-color: #FFEAD0;
     color: #4D4D4D;
-    font-size: var(--font-size-0);
     width: 104px;
     height: 37px;
     padding: 0 6px;
@@ -64,14 +63,12 @@
     display: flex;
     width: 90%;
     justify-content: space-between;
-    font-size: calc(var(--font-size-2) - 0.1rem);
     font-weight: 600;
 }
 
 .van_detail > .per_day{
     justify-content: flex-end;
     margin-bottom: 5px;
-    font-size: var(--font-size-0);
     font-weight: 500;
 }
 
@@ -81,16 +78,6 @@
         grid-template-columns: 1fr;
         justify-items: center;
         align-items: center;
-    }
-    
-    .main_vans > h1{
-        font-size: var(--font-size-m-3);
-    }
-
-    .btn_container > button{
-        font-size: var(--font-size-m-2);
-        width: 15%;
-        padding: 4px;
     }
 
     .van_detail > img{
@@ -107,9 +94,6 @@
         grid-template-columns: 2fr 2fr;
     }
 
-}
-
-@media (575px < width < 810px){
     .van_detail > div{
         width: 70%;
     }
@@ -128,8 +112,7 @@
     }
 
     .btn_container > button{
-        font-size: var(--font-size-m-2);
-        width: 70%;
+        width: 82%;
         padding: 4px;
     }
 }
