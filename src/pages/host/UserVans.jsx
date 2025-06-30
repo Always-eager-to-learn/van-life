@@ -15,7 +15,7 @@ export default function UserVans(){
     if (userVans !== null){
         displayData = userVans.map((element) => {
             return (
-                <Link to={`/host/vans/${element.id}`} key={element.id}  className={styles.host_container}>
+                <Link to={`${element.id}`} key={element.id}  className={styles.host_container}>
                     <img src={element.imageUrl} alt={`The image of ${element.name} van`} />
                     <div className={styles.host_div}>
                             <h3 className='font-semi-big'>{element.name}</h3>

@@ -39,16 +39,25 @@
 
 .about_container > button{
     background-color: #161616;
-    color: hsl(0, 100%, 100%);
     border-radius: 10px;
     font-weight: 700;
-    padding: 15px;
+    height: 55px;
+    padding: 0;
 }
 
 .about_container > button:hover{
-    color: #161616;
     background-color: hsl(0, 100%, 100%);
     box-shadow: 0 0 2px 2px hsl(33, 39%, 46%);
+}
+
+.about_container > button > a{
+    color: hsl(0, 100%, 100%);
+    display: block;
+    padding: 15px;
+}
+
+.about_container > button > a:hover{
+    color: #161616;
 }
 
 @media (width < 576px) {
@@ -81,6 +90,15 @@
     
     .about_info > h1{
         padding: 8px 0px;
+    }
+
+    .about_container > button{
+        height: 40px;
+        width: 55%;
+    }
+
+    .about_container > button > a{
+        padding: 2%;
     }
 }
 

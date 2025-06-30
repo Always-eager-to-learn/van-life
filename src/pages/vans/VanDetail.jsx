@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import BackArrow from '../../components/BackArrow'
 import clsx from 'clsx'
@@ -6,7 +6,10 @@ import pageStyles from './VanDetail.module.css'
 
 export default function VanDetail(){
     const params = useParams()
+    const location = useLocation()
     const [van, setVan] = useState(null)
+    const text = location.state?.type || 'all'
+
     let styles = {}
     if(van){
         styles = {
@@ -26,7 +29,7 @@ export default function VanDetail(){
 
     return (
         <main className={pageStyles.main_container}>
-           <BackArrow pageName='vans' />
+           <BackArrow pageName='vans' location={location.state.parameters} text={text}/>
 
             {van !== null ? (
                  <section className={pageStyles.van_container}>

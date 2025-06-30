@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
+import NotFound from './pages/NotFound'
 import Vans from './pages/vans/Vans'
 import VanDetail from './pages/vans/VanDetail'
 import Layout from './components/Layout'
@@ -39,6 +40,8 @@ export default function App(){
                             <Route path='photos' element={<Photos />} />
                         </Route>
                     </Route>
+
+                    <Route path='*' element={<NotFound />} />
                 </Route>
             </Routes>
         </BrowserRouter>

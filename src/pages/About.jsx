@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import PersonImage from '../assets/person-on-van.png'
 import styles from './About.module.css'
 
@@ -17,7 +18,9 @@ export default function About(){
 
                 <div className={styles.about_container}>
                     <h2 className='font-semi-big'>Your destination is waiting.<br />Your van is ready.</h2>
-                    <button className='font-small'>Explore our vans</button>
+                    <button>
+                        <Link className='font-small' to='/vans'>Explore our vans</Link>
+                    </button>
                 </div>
             </section>
         </main>

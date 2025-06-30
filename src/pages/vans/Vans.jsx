@@ -1,10 +1,26 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import clsx from 'clsx'
 import pageStyles from './Vans.module.css'
 
 export default function Vans(){
+
+    function setParam(type='', value = ''){
+        setSearchParams((prevParams) => {
+            if(value != null){
+                prevParams.set(type, value)
+            }
+            else{
+                prevParams.delete(type)
+            }
+
+            return prevParams
+        })
+    }
+
     const [vanState, setVanState] = useState(null)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const typeFilter = searchParams.get('type')
 
     useEffect(() => {
         fetch('/api/vans')
@@ -15,7 +31,11 @@ export default function Vans(){
     let vanElements
     
     if(vanState !== null){
-        vanElements = vanState.map((element) => {
+        const vanDisplay = typeFilter !== null
+                                      ? vanState.filter((van) => van.type === typeFilter)
+                                      : vanState
+
+        vanElements = vanDisplay.map((element) => {
             const styles = {
                 backgroundColor: clsx({
                     '#115E59': element.type == 'rugged',
@@ -24,7 +44,12 @@ export default function Vans(){
                 })
             }
             return (
-                <Link to={`/vans/${element.id}`} key={element.id}>
+                <Link to={`${element.id}`} key={element.id} className='a-blue' 
+                    state={{
+                        parameters: searchParams.toString(),
+                        type: typeFilter,
+                    }}
+                >
                     <section className={pageStyles.van_detail}>
                         <img src={element.imageUrl} alt={`This is a ${element.name} van picture.`} />
                         <div className='font-medium'>
@@ -51,12 +76,33 @@ export default function Vans(){
         <main className={pageStyles.main_vans}>
             <h1 className='font-big'>Explore our van options</h1>
             <section className={pageStyles.btn_container}>
-                <button className={`${pageStyles.normal} font-small`}>Simple</button>
-                <button className={`${pageStyles.normal} font-small`}>Luxury</button>
-                <button className={`${pageStyles.normal} font-small`}>Rugged</button>
-                <button className={`${pageStyles.special} font-small`}>
-                    Clear all filters
+                <button 
+                    className={`${pageStyles.normal} font-small ${typeFilter === 'simple' ? pageStyles.selected : ''}`} 
+                    onClick={() => setParam('type', 'simple')}
+                >
+                    Simple
                 </button>
+
+                <button 
+                    className={`${pageStyles.normal} font-small ${typeFilter === 'luxury' ? pageStyles.selected : ''}`} 
+                    onClick={() => setParam('type', 'luxury')}
+                >
+                    Luxury
+                </button>
+
+                <button 
+                    className={`${pageStyles.normal} font-small ${typeFilter === 'rugged' ? pageStyles.selected : ''}`} 
+                    onClick={() => setParam('type', 'rugged')}
+                >
+                    Rugged
+                </button>
+
+                {typeFilter !== null ?
+                    ( <button className={`${pageStyles.special} font-small`} onClick={() => setParam('type', null)}>
+                        Clear all filters
+                    </button> )
+                    : null
+                }
             </section>
 
             {vanState ? 

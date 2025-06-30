@@ -58,7 +58,6 @@ nav{
 }
 
 main{
-    padding-top: 20px;
     background-color: #FFF7ED;
 }
 
@@ -108,6 +107,10 @@ nav > section > a:hover{
 
 .font-very-small{
     font-size: var(--font-size-0);
+}
+
+.a-blue, a.a-blue:visited{
+    color: rgb(37, 37, 213);
 }
 
 .loading{

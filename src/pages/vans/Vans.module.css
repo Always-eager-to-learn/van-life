@@ -11,7 +11,7 @@
     padding-bottom: 45px;
 }
 
-.btn_container > button{
+.btn_container > .normal{
     background-color: #FFEAD0;
     color: #4D4D4D;
     width: 104px;
@@ -26,10 +26,26 @@
     box-shadow: 0 0 2px 2px hsl(34, 24%, 66%);
 }
 
-.btn_container > .special, .btn_container > .special:hover{
+.btn_container > .special{
     text-decoration: underline;
     background-color: #FFF7ED;
-    width: 134px;
+    width: 150px;
+}
+
+.btn_container > .special:hover{
+    background-color: #fcd8ad;
+    box-shadow: 0 0 2px 2px #fcd8adc6
+}
+
+.btn_container > .selected{
+    background-color: hsl(297, 98%, 81%);
+    color: hsl(242, 88%, 17%);
+}
+
+.btn_container > .selected:hover{
+    background-color: hsl(242, 26.71%, 48.46%);
+    color: hsl(297, 98%, 81%);
+    box-shadow: 0 0 2px 2px hsla(242, 88%, 17%, 0.666)
 }
 
 .vans_container{
@@ -37,10 +53,6 @@
     grid-template-columns: 2fr 2fr 2fr;
     gap: 1.3em;
     padding: 7px;
-}
-
-.vans_container > a, .vans_container > a:visited{
-    color: rgb(37, 37, 213)
 }
 
 .vans_container > a:hover{

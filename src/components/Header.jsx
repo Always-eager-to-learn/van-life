@@ -11,12 +11,15 @@ export default function Header(){
         <nav>
             <Link to='.' className={`${styles.home_link} font-semi-big`}>#VANLIFE</Link>
             <section className={styles.nav_section}>
-                <NavLink to='host' className={setClassName}>
-                Host</NavLink>
-                <NavLink to='about' className={setClassName}>
-                About</NavLink>
-                <NavLink to='vans' className={setClassName}>
-                Vans</NavLink>
+                <NavLink to='host' className={setClassName} end={true}>
+                    Host
+                </NavLink>
+                <NavLink to='about' className={setClassName} end={true}>
+                    About
+                </NavLink>
+                <NavLink to='vans' className={setClassName} end={true}>
+                    Vans
+                </NavLink>
             </section>
         </nav>
     )
