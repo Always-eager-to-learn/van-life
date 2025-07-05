@@ -43,21 +43,18 @@
     font-weight: 700;
     height: 55px;
     padding: 0;
-}
-
-.about_container > button:hover{
-    background-color: hsl(0, 100%, 100%);
-    box-shadow: 0 0 2px 2px hsl(33, 39%, 46%);
+    box-shadow: none;
+    transition: 
+        background-color 400ms ease-in-out,
+        box-shadow 500ms cubic-bezier(0.86, 0.05, 0.69, 0.98);
 }
 
 .about_container > button > a{
     color: hsl(0, 100%, 100%);
     display: block;
     padding: 15px;
-}
-
-.about_container > button > a:hover{
-    color: #161616;
+    transition: 
+            color 400ms ease-in;
 }
 
 @media (width < 576px) {
@@ -105,5 +102,28 @@
 @media (width > 436px) {
     .about_section > h1{
         font-size: var(--font-size-m-4);
+    }
+}
+
+@media (hover: hover){
+    .about_container > button:hover{
+        background-color: hsl(0, 100%, 100%);
+        box-shadow: 0 0 2px 2px hsl(33, 39%, 46%);
+    }
+
+    .about_container > button > a:hover{
+        color: hsl(0, 0%, 28%);
+    }
+}
+
+@media (hover: none){
+    .about_container > button:active{
+        background-color: hsl(0, 100%, 100%);
+        box-shadow: 0 0 2px 2px hsl(33, 39%, 46%);
+        transform: translateY(2px);
+    }
+
+    .about_container > button > a:active{
+        color: hsl(0, 0%, 28%);
     }
 }

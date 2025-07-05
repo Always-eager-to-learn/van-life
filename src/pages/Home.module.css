@@ -38,12 +38,11 @@
     padding: 5px;
     border-radius: 5px;
     font-weight: 700;
-}
-
-.main_button:hover{
-    color: #FF8C38;
-    background-color: hsl(0, 100%, 100%);
-    box-shadow: 0 0 2px 2px hsl(0, 19%, 13%);
+    box-shadow: none;
+    transition: 
+            background-color 400ms ease-in-out,
+            color 400ms ease-in-out,
+            box-shadow 500ms ease-in;
 }
 
 @media (width < 576px) {
@@ -77,5 +76,21 @@
     .related-info{
         padding: 25px;
         bottom: 20%;
+    }
+}
+
+@media (hover: hover){
+    .main_button:hover{
+        color: #FF8C38;
+        background-color: hsl(0, 100%, 100%);
+        box-shadow: 0 0 2px 2px hsl(0, 4%, 34%);
+    }
+}
+
+@media (hover: none){
+    .main_button:active{
+        color: #FF8C38;
+        background-color: hsl(0, 100%, 100%);
+        transform: translateY(2px);
     }
 }

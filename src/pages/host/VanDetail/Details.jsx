@@ -1,11 +1,19 @@
 import { useOutletContext } from 'react-router-dom'
+import { useRef, useEffect } from 'react'
 import styles from './VanDetail.module.css'
 
 export default function Details(){
     const { vanDetails } = useOutletContext()
+    const focusObject = useRef(null)
+
+    useEffect(() => {
+        if(focusObject.current !== null){
+            focusObject.current.scrollIntoView({ behavior: 'smooth'})
+        }
+    }, [])
 
     return (
-        <section className={styles.van_info}>
+        <section className={styles.van_info} ref={focusObject}>
             <p className="font-medium">
                 <span className={styles.bold}>Name: </span> {vanDetails.name}
             </p>

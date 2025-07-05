@@ -18,6 +18,11 @@ footer > p{
     color: #161616;
     font-weight: 700;
     background-color: #ebebeb;
+    box-shadow: none;
+    transition: 
+        background-color 250ms ease-in-out,
+        color 250ms ease-in,
+        box-shadow 325ms cubic-bezier(0.86, 0.05, 0.69, 0.98);
 }
 
 /* Specific class styles */
@@ -38,12 +43,6 @@ footer > p{
     font-weight: 900;
 }
 
-.nav_section > a.active_link:hover{
-    background-color: #4893b6;
-    color: #ebebeb;
-    box-shadow: 0 0 2px 3px hsl(30, 11%, 79%)
-}
-
 .host_nav{
     color: #000;
     justify-content: space-evenly;
@@ -54,11 +53,6 @@ footer > p{
     padding: 0.5rem;
     display: flex;
     justify-content: center;
-}
-
-.host_nav > a.active_link:hover{
-    background-color: hsl(25, 77%, 80%);
-    box-shadow: 0 0 2px 3px hsl(30, 11%, 79%);
 }
 
 .back_tick{
@@ -91,5 +85,18 @@ footer > p{
 
     .host_nav > a{
         width: 100%;
+    }
+}
+
+@media (hover: hover){
+    .nav_section > a.active_link:hover{
+        background-color: #4893b6;
+        color: #ebebeb;
+        box-shadow: 0 0 2px 3px hsl(30, 11%, 79%)
+    }
+
+    .host_nav > a.active_link:hover{
+        background-color: hsl(25, 77%, 80%);
+        box-shadow: 0 0 2px 3px hsl(30, 11%, 79%);
     }
 }
