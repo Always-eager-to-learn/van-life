@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import clsx from 'clsx'
 import pageStyles from './Vans.module.css'
+import { getVan } from '../../api'
 
 export default function Vans(){
 
@@ -19,13 +20,19 @@ export default function Vans(){
     }
 
     const [vanState, setVanState] = useState(null)
+    const [loading, setLoading] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const typeFilter = searchParams.get('type')
 
     useEffect(() => {
-        fetch('/api/vans')
-            .then((value) => value.json())
-            .then((data) => setVanState(data.vans))
+        async function getDetail(){
+            setLoading(true)
+            const data = await getVan()
+            setVanState(data)
+            setLoading(false)
+        }
+        
+        getDetail()
     }, [])
 
     let vanElements
@@ -105,7 +112,7 @@ export default function Vans(){
                 }
             </section>
 
-            {vanState ? 
+            {loading !== true ? 
                 <section className={pageStyles.vans_container}>
                     {vanElements}
                 </section>
