@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useLoaderData } from 'react-router-dom'
 import clsx from 'clsx'
 import pageStyles from './Vans.module.css'
 import { getVan } from '../../api'
+
+export function loader(){
+    return getVan()
+}
 
 export default function Vans(){
 
@@ -19,65 +22,49 @@ export default function Vans(){
         })
     }
 
-    const [vanState, setVanState] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const vanState = useLoaderData()
     const [searchParams, setSearchParams] = useSearchParams()
     const typeFilter = searchParams.get('type')
 
-    useEffect(() => {
-        async function getDetail(){
-            setLoading(true)
-            const data = await getVan()
-            setVanState(data)
-            setLoading(false)
-        }
-        
-        getDetail()
-    }, [])
-
-    let vanElements
-    
-    if(vanState !== null){
-        const vanDisplay = typeFilter !== null
+    const vanDisplay = typeFilter !== null
                                       ? vanState.filter((van) => van.type === typeFilter)
                                       : vanState
 
-        vanElements = vanDisplay.map((element) => {
-            const styles = {
-                backgroundColor: clsx({
-                    '#115E59': element.type == 'rugged',
-                    '#161616': element.type == 'luxury',
-                    '#E17654': element.type == 'simple'
-                })
-            }
-            return (
-                <Link to={`${element.id}`} key={element.id} className='a-blue' 
-                    state={{
-                        parameters: searchParams.toString(),
-                        type: typeFilter,
-                    }}
-                >
-                    <section className={pageStyles.van_detail}>
-                        <img src={element.imageUrl} alt={`This is a ${element.name} van picture.`} />
-                        <div className='font-medium'>
-                            <span>{element.name}</span>
-                            <span>${element.price}</span>
+    const vanElements = vanDisplay.map((element) => {
+        const styles = {
+            backgroundColor: clsx({
+                '#115E59': element.type == 'rugged',
+                '#161616': element.type == 'luxury',
+                '#E17654': element.type == 'simple'
+            })
+        }
+        return (
+            <Link to={`${element.id}`} key={element.id} className='a-blue' 
+                state={{
+                    parameters: searchParams.toString(),
+                    type: typeFilter,
+                }}
+            >
+                <section className={pageStyles.van_detail}>
+                    <img src={element.imageUrl} alt={`This is a ${element.name} van picture.`} />
+                    <div className='font-medium'>
+                        <span>{element.name}</span>
+                        <span>${element.price}</span>
+                    </div>
+                    <div className={`${pageStyles.per_day} font-very-small`}>
+                        <span>/day</span>
+                    </div>
+                    <div>
+                        <div 
+                            style={styles}
+                            className='type_button font-small'
+                        >{element.type}
                         </div>
-                        <div className={`${pageStyles.per_day} font-very-small`}>
-                            <span>/day</span>
-                        </div>
-                        <div>
-                            <div 
-                                style={styles}
-                                className='type_button font-small'
-                            >{element.type}
-                            </div>
-                        </div>
-                    </section>
-                </Link>
-            )
-        })
-    }
+                    </div>
+                </section>
+            </Link>
+        )
+    })
 
     return (
         <main className={pageStyles.main_vans}>
@@ -112,12 +99,9 @@ export default function Vans(){
                 }
             </section>
 
-            {loading !== true ? 
-                <section className={pageStyles.vans_container}>
-                    {vanElements}
-                </section>
-            : <h2 className='loading'>Loading please wait...</h2>
-            }
+            <section className={pageStyles.vans_container}>
+                {vanElements}
+            </section>
         </main>
     )
 }

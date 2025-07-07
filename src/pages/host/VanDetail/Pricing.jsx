@@ -1,6 +1,11 @@
 import { useOutletContext } from 'react-router-dom'
 import { useEffect, useRef } from 'react';
 
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader(){
+    return null
+}
+
 export default function Pricing(){
     const { vanDetails } = useOutletContext()
     const focusObject = useRef(null);

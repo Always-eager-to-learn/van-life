@@ -44,7 +44,7 @@ body{
 
 nav, footer, main{
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 nav{
@@ -89,6 +89,11 @@ nav > section > a:hover{
     text-decoration: underline;
 }
 
+input{
+    font-family: inherit;
+    border: none;
+}
+
 .font-big{
     font-size: var(--font-size-4);
 }
@@ -111,11 +116,6 @@ nav > section > a:hover{
 
 .a-blue, a.a-blue:visited{
     color: rgb(37, 37, 213);
-}
-
-.loading{
-    margin: 0;
-    padding: 20px;
 }
 
 .type_button{

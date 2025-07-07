@@ -1,0 +1,71 @@
+form{
+    padding: 30px;
+}
+
+label{
+    font-weight: 500;
+}
+
+input{
+    display: block;
+    margin: 8px 0px 8px 26px;
+    border-bottom: 2px solid hsl(0, 1%, 26%);
+    width: 75%;
+    padding: 8px;
+    border-radius: 2px;
+}
+
+.center{
+    text-align: center;
+}
+
+.login_button{
+    width: 100%;
+    padding: 9px;
+    background-color: #FF8C38;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 #0000000D;
+    color: #fff;
+    margin-top: 14px;
+    font-weight: 400;
+    transition:
+        background-color 250ms cubic-bezier(0.165, 0.84, 0.44, 1),
+        color 250ms ease-in,
+        font-weight 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.create_account{
+    margin-block-end: 23px;
+}
+
+.create_account > a{
+    color: hsl(0, 100%, 65%);
+}
+
+@media (hover: hover){
+    .login_button:hover{
+        background-color: hsla(0, 0%, 97%, 0.985);
+        color: #FF8C38;
+        font-weight: 500;
+    }
+
+    .create_account > a:hover{
+        text-decoration: underline;
+    }
+}
+
+@media (width < 576px){
+    form{
+        padding: 5%;
+    }
+
+    input{
+        margin-left: 7%;
+        width: 85%;
+        padding: 2%;
+    }
+
+    .create_account > a{
+        display: block;
+    }
+}

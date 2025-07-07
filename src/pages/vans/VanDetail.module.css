@@ -29,13 +29,12 @@
     width: 100%;
     padding: 14px;
     border-radius: 6px;
-}
-
-.van_container > button:hover{
-    background-color: hsla(0, 3%, 94%, 0.905);
-    color: hsl(25, 93%, 51%);
-    box-shadow: 0 0 2px 2px hsl(33, 24%, 76%);
-    font-weight: 700;
+    box-shadow: none;
+    transition:
+        backgroud-color 450ms cubic-bezier(0.86, 0, 0.07, 1),
+        color 350ms ease-in,
+        font-weight 500ms ease-in-out,
+        box-shadow 400ms cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
 .secondary_heading{
@@ -107,5 +106,14 @@
 
     .van_container > div{
         margin: 0 23%;
+    }
+}
+
+@media (hover: hover){
+    .van_container > button:hover{
+        background-color: hsla(0, 3%, 94%, 0.905);
+        color: hsl(25, 93%, 51%);
+        box-shadow: 0 0 2px 2px hsl(33, 24%, 76%);
+        font-weight: 700;
     }
 }

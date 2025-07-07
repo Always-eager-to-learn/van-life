@@ -1,4 +1,4 @@
-import { Outlet, NavLink } from 'react-router-dom'
+import { Outlet, NavLink, Navigate } from 'react-router-dom'
 import styles from './Component.module.css'
 
 export default function HostHeader(){
@@ -6,6 +6,8 @@ export default function HostHeader(){
     function setClassName(obj){
         return `${obj.isActive ? styles.active_link : null} font-medium`
     }
+
+    const userSignedIn = false
 
     return (
         <>
@@ -23,7 +25,7 @@ export default function HostHeader(){
                     Reviews
                 </NavLink>
             </nav>
-            <Outlet />
+            { userSignedIn ? <Outlet /> : <Navigate to='/login'/>}
         </>
     )
 }
