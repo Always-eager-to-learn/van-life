@@ -1,9 +1,14 @@
 import { Link, useLoaderData } from 'react-router-dom'
 import styles from './UserVans.module.css'
 import { getHostVan } from '../../api'
+import { getAuthenticationStatus } from '../../auth'
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function loader(){
+export async function loader(){
+    const status = await getAuthenticationStatus()
+    if(!status)
+        return []
+    
     return getHostVan()
 }
 

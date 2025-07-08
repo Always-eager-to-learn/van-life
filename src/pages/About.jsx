@@ -15,14 +15,13 @@ export default function About(){
                     <br /><br />
                     Our team is full of vanlife enthusiasts who know firsthand the magic of touring the world on 4 wheels.
                 </p>
-
-                <div className={styles.about_container}>
+            </section>
+            <div className={styles.about_container}>
                     <h2 className='font-semi-big'>Your destination is waiting.<br />Your van is ready.</h2>
                     <button>
                         <Link className='font-small' to='/vans'>Explore our vans</Link>
                     </button>
-                </div>
-            </section>
+            </div>
         </main>
     )
 }

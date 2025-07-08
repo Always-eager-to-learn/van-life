@@ -3,9 +3,14 @@ import BackArrow from '../../components/BackArrow'
 import styles from './UserVanDetail.module.css'
 import clsx from 'clsx'
 import { getHostVan } from '../../api'
+import { getAuthenticationStatus } from "../../auth"
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function loader({ params }){
+export async function loader({ params }){
+    const status = await getAuthenticationStatus()
+    if(!status)
+        return []
+    
     return getHostVan(params.id)
 }
 

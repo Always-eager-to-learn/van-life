@@ -4,12 +4,12 @@ import styles from './Component.module.css'
 export default function Header(){
 
     function setClassName(object){
-        return `${object.isActive ? styles.active_link : ''} font-medium`
+        return `${object.isActive ? styles.active_link : ''} font-semi-big`
     }
 
     return (
         <nav>
-            <Link to='.' className={`${styles.home_link} font-semi-big`}>#VANLIFE</Link>
+            <Link to='.' className={`${styles.home_link} font-big`}>#VANLIFE</Link>
             <section className={styles.nav_section}>
                 <NavLink to='host' className={setClassName} end={true}>
                     Host

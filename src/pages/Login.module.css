@@ -1,5 +1,6 @@
 form{
     padding: 30px;
+    max-width: 1024px;
 }
 
 label{
@@ -8,11 +9,29 @@ label{
 
 input{
     display: block;
-    margin: 8px 0px 8px 26px;
-    border-bottom: 2px solid hsl(0, 1%, 26%);
+    margin-inline-start: 26px;
+    margin-block: 12px;
+    outline: 2px solid hsl(0, 0%, 40%);
     width: 75%;
     padding: 8px;
-    border-radius: 2px;
+    border-radius: 15px;
+    outline-offset: 2px;
+    border: none;
+    background-color: #f0f0f0;;
+    color: #2b2b2b;
+    transition: outline 250ms cubic-bezier(0.14, 1, 0.86, 0);
+}
+
+input:user-valid, input:focus:valid{
+    outline-color: hsl(120, 55%, 45%);
+}
+
+input:user-invalid{
+    outline-color: hsl(0, 100%, 76%);
+}
+
+input:focus:invalid{
+    outline-color: hsl(32, 99%, 65%);
 }
 
 .center{
@@ -21,9 +40,9 @@ input{
 
 .login_button{
     width: 100%;
-    padding: 9px;
+    padding: 12px;
     background-color: #FF8C38;
-    border-radius: 6px;
+    border-radius: 20px;
     box-shadow: 0 1px 2px 0 #0000000D;
     color: #fff;
     margin-top: 14px;
@@ -63,9 +82,23 @@ input{
         margin-left: 7%;
         width: 85%;
         padding: 2%;
+        margin-block: 15px;
     }
 
     .create_account > a{
         display: block;
+    }
+}
+
+@media (width > 1024px){
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 100%;
+    }
+
+    .login_button{
+        width: 50%;
     }
 }

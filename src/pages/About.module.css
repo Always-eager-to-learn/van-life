@@ -31,6 +31,7 @@
     border-radius: 10px;
     margin-bottom: 33px;
     margin-top: 8px;
+    display: block;
 }
 
 .about_container > h2{
@@ -59,7 +60,7 @@
 
 @media (width < 576px) {
 
-    .about-section > section{
+    .about_section > section{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -69,11 +70,11 @@
         width: 90%;
     }
 
-    .about-section > section > p{
+    .about_section > section > p{
         padding: 4px 21px;
     }
 
-    .about-section > section{
+    .about_section > section{
         padding: 5px 4px;
     }
 
@@ -125,5 +126,17 @@
 
     .about_container > button > a:active{
         color: hsl(0, 0%, 28%);
+    }
+}
+
+@media (width > 950px){
+    .about_section{
+        display: grid;
+        grid-template-columns: repeat(2, 3fr);
+        /* grid-template-rows: repeat(2, 1fr); */
+    }
+
+    .about_container{
+        grid-row-start: 2;
     }
 }

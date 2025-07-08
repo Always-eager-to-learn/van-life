@@ -163,3 +163,14 @@ footer > p{
         transform: translateY(2px);
     }
 }
+
+@media (width > 950px){
+    nav{
+        justify-content: space-between;
+        padding-inline: 6%;
+    }
+
+    .nav_section{
+        width: 550px;
+    }
+}

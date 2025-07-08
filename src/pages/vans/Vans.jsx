@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import pageStyles from './Vans.module.css'
 import { getVan } from '../../api'
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function loader(){
     return getVan()
 }

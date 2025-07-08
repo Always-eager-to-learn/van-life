@@ -8,7 +8,7 @@ import VanDetail, {loader as vanDetailLoader} from './pages/vans/VanDetail'
 import Layout from './components/Layout'
 import HostHeader from './components/HostHeader'
 import Error from './components/Error'
-import Dashboard from './pages/host/Dashboard'
+import Dashboard, {loader as dashboardLoader} from './pages/host/Dashboard'
 import Income, {loader as incomeLoader} from './pages/host/Income'
 import Reviews, {loader as reviewsLoader} from './pages/host/Reviews'
 import UserVans, {loader as userVansLoader} from './pages/host/UserVans'
@@ -17,23 +17,37 @@ import Details, {loader as detailsLoader} from './pages/host/VanDetail/Details'
 import Pricing, {loader as pricingLoader} from './pages/host/VanDetail/Pricing'
 import Photos, {loader as photosLoader} from './pages/host/VanDetail/Photos'
 import './server'
+import { getAuthenticationStatus } from './auth'
+
+async function displayStatus(){
+    return await getAuthenticationStatus()
+}
 
 export default function App(){
 
     const routes = createRoutesFromElements(
         <Route path='/' element={<Layout />} 
-            
+            errorElement={
+                <Layout>
+                    <Error />
+                </Layout>
+            }
         >
             <Route index element={<Home />} />
             <Route path='about' element={<About />} />
 
-            <Route path='vans' element={<Vans />} loader={vanLoader} errorElement={<Error />} />
+            <Route path='vans' element={<Vans />} loader={vanLoader}/>
             <Route path='vans/:id' element={<VanDetail />} loader={vanDetailLoader} />
             <Route path='login' element={<Login />} />            
 
-            <Route path='host' element={<HostHeader />}> 
-                <Route index element={<Dashboard />} />
-                <Route path='income' element={<Income />} loader={incomeLoader}/>
+            <Route path='host' element={<HostHeader />} loader={displayStatus} 
+                    shouldRevalidate={({currentUrl, nextUrl}) => {
+                            return !currentUrl.pathname.startsWith('/host') && nextUrl.pathname.startsWith('/host')
+                        }
+                    }
+                > 
+                <Route index element={<Dashboard />} loader={dashboardLoader} />
+                <Route path='income' element={<Income />} loader={incomeLoader} />
                 <Route path='reviews' element={<Reviews />} loader={reviewsLoader} />
                 <Route path='vans' element={<UserVans />} loader={userVansLoader} />
                 <Route path='vans/:id' element={<UserVanDetail />} loader={userVanDetailLoader} >

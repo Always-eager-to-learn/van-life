@@ -185,3 +185,15 @@
         transform: translateY(2px)
     }
 }
+
+@media (width > 950px){
+    .vans_container{
+        grid-template-columns: repeat(4, 2fr)
+    }
+}
+
+@media (width > 1440px){
+    .vans_container{
+        grid-template-columns: repeat(5, 2fr);
+    }
+}

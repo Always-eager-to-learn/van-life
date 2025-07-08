@@ -7,6 +7,9 @@
     --font-size-3: 1.7rem;
     --font-size-4: 2.25rem;
 
+    --font-size-b-1: 1.9rem;
+    --font-size-b-2: 2.5rem;
+
     --font-size-m-0: 0.675rem;
     --font-size-m-1: 0.8rem;
     --font-size-m-2: 1rem;
@@ -44,7 +47,6 @@ body{
 
 nav, footer, main{
     width: 100%;
-    max-width: 1000px;
 }
 
 nav{
