@@ -16,12 +16,15 @@ export default function About(){
                     Our team is full of vanlife enthusiasts who know firsthand the magic of touring the world on 4 wheels.
                 </p>
             </section>
-            <div className={styles.about_container}>
-                    <h2 className='font-semi-big'>Your destination is waiting.<br />Your van is ready.</h2>
-                    <button>
-                        <Link className='font-small' to='/vans'>Explore our vans</Link>
-                    </button>
-            </div>
+            <section className={styles.related_grid}>
+                <div className={styles.about_container}>
+                        <h2 className='font-semi-big'>Your destination is waiting.<br />Your van is ready.</h2>
+                        <button>
+                            <Link className='font-small' to='/vans'>Explore our vans</Link>
+                        </button>
+                </div>
+            </section>
+           
         </main>
     )
 }

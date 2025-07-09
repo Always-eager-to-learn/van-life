@@ -39,7 +39,7 @@ footer > p{
 }
 
 .nav_section > a{
-    width: 75px;
+    width: 25%;
     display: flex;
     justify-content: center;
 }

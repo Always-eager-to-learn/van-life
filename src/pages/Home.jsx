@@ -11,7 +11,10 @@ export default function Home(){
 
                     <div className={styles.image_container}>
 
-                        <img src={Image} alt="Image of a mountain from a van's perspective" />
+                        <div className={styles.image_div}>
+                            <img src={Image} alt="Image of a mountain from a van's perspective" />
+                        </div>
+                        
                         <div className={styles.related_info}>
 
                             <h1 className='font-big'>You got the travel plans, we got the travel vans.</h1>
