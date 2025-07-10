@@ -45,8 +45,11 @@ footer > p{
 }
 
 .nav_section > a:last-child{
-    width: 40px;
     height: 40px;
+}
+
+.logo_active_link{
+    transition: background-color 500ms cubic-bezier(0.23, 0.03, 0.48, 1.13);
 }
 
 .home_link{
@@ -107,7 +110,6 @@ footer > p{
 @media (width < 576px) {
     .nav_section{
         justify-content: center;
-        width: 100%;
     }
 
     .back_tick{
@@ -149,12 +151,16 @@ footer > p{
     }
 
     .svg_stroke:hover{
-        stroke: #0c4767;
+        stroke: #597e92;
     }
 
     .host_nav > a.active_link:hover{
         background-color: hsl(25, 77%, 80%);
         box-shadow: 0 0 2px 3px hsl(30, 11%, 79%);
+    }
+
+    .logo_active_link:hover{
+        background-color: #ffe2be;
     }
 }
 
@@ -171,6 +177,13 @@ footer > p{
     }
 
     .nav_section{
-        width: 550px;
+        width: 430px;
+        justify-content: flex-start;
+    }
+}
+
+@media (width > 1024px){
+    nav{
+        padding: 3%;
     }
 }
