@@ -110,6 +110,7 @@ footer > p{
 @media (width < 576px) {
     .nav_section{
         justify-content: center;
+        width: 300px;
     }
 
     .back_tick{

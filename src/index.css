@@ -117,6 +117,14 @@ input{
     color: rgb(37, 37, 213);
 }
 
+.red{
+    color: hsl(329, 86%, 28%);
+}
+
+.weight-500{
+    font-weight: 500;
+}
+
 .type_button{
     color: #FFEAD0;
     width: 85px;

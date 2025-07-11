@@ -30,7 +30,7 @@ input{
     transition: outline 250ms cubic-bezier(0.14, 1, 0.86, 0);
 }
 
-input:user-valid, input:focus:user-valid{
+input:user-valid, input:focus:valid{
     outline-color: hsl(109, 44%, 55%);
 }
 
@@ -88,14 +88,19 @@ input:focus:invalid{
     }
 
     input{
-        margin-left: 7%;
-        width: 85%;
+        margin-left: 5%;
+        width: 93%;
         padding: 2%;
         margin-block: 15px;
     }
 
     .create_account > a{
         display: block;
+    }
+
+    .information_section > h2{
+        margin: 0;
+        margin-block-end: 11px;
     }
 }
 
@@ -122,7 +127,7 @@ input:focus:invalid{
         width: 90%;
     }
 
-    h1{
+    h1, h2{
         padding: 5px;
         width: 90%;
     }
@@ -140,7 +145,7 @@ input:focus:invalid{
 
 @media (width > 1024px){
     .form_design{
-        padding-inline-start: 120px;
+        padding-inline-start: 85px;
         padding-inline-end: 60px;
         gap: 1em;
     }
@@ -152,6 +157,7 @@ input:focus:invalid{
     input{
         margin-inline-start: 27px;
     }
+    
     .login_button{
         width: 50%;
     }

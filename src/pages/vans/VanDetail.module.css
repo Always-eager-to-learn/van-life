@@ -117,3 +117,9 @@
         font-weight: 700;
     }
 }
+
+@media (width > 950px){
+    .left{
+        background-color: red;
+    }
+}

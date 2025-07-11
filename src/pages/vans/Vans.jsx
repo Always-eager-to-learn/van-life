@@ -31,7 +31,7 @@ export default function Vans(){
                                       ? vanState.filter((van) => van.type === typeFilter)
                                       : vanState
 
-    const vanElements = vanDisplay.map((element) => {
+    const vanElements = vanDisplay.map((element, index) => {
         const styles = {
             backgroundColor: clsx({
                 '#115E59': element.type == 'rugged',
@@ -44,6 +44,7 @@ export default function Vans(){
                 state={{
                     parameters: searchParams.toString(),
                     type: typeFilter,
+                    direction: index % 2 == 0 ? 'left' : 'right',
                 }}
             >
                 <section className={pageStyles.van_detail}>

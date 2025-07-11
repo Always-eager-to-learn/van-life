@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './Login.module.css'
 
 export default function Login(){
@@ -7,10 +7,20 @@ export default function Login(){
         
     }
 
+    const data = useLocation()
+    const message = data.state !== null ? data.state.message : null
+
     return (
         <main>
             <section className={styles.form_design}>
-                <h1 className={`font-big ${styles.center}`}>Sign in to your Account</h1>
+                <section className={styles.information_section}>
+                    <h1 className={`font-big ${styles.center}`}>Sign in to your Account</h1>
+                    {message !== null ? 
+                        <h2 className={`font-semi-big ${styles.center} red weight-500`}>{message}</h2> :
+                        null
+                    }
+                </section>
+                
                 <form action={setAuthentication}>
                     <section className={styles.form_group}>
                         <label htmlFor="emailid" className='font-semi-big'>Email Address: </label>

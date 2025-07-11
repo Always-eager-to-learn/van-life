@@ -28,7 +28,9 @@ export default function HostHeader(){
                     </nav>
                     <Outlet />
                 </>
-                : <Navigate to='/login'/>
+                : <Navigate to='/login' state={
+                    {message: 'Please login to access this information'}
+                }/>
             }
         </>
     )

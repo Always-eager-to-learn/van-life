@@ -26,7 +26,7 @@ export default function VanDetail(){
         <main className={pageStyles.main_container}>
            <BackArrow pageName='vans' location={location.state.parameters} text={text}/>
 
-            <section className={pageStyles.van_container}>
+            <section className={`${pageStyles.van_container} ${location.state.direction}`}>
                 <img src={van.imageUrl} alt={`Image of the ${van.name} van.`} />
 
                 <div style={styles} className='type_button'>{van.type}</div>
