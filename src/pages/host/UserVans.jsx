@@ -29,7 +29,7 @@ export default function UserVans(){
     return (
         <main>
             <section>
-                <h1>Your listed Vans</h1>
+                <h1 className='font-big'>Your listed Vans</h1>
                 <section className={styles.host_van_container}>
                     {displayData}
                 </section>

@@ -4,7 +4,7 @@ import styles from './Component.module.css'
 export default function HostHeader(){
 
     function setClassName(obj){
-        return `${obj.isActive ? styles.active_link : null} font-medium`
+        return `${obj.isActive ? styles.active_link : null} font-semi-big`
     }
     const status = useLoaderData()
 
