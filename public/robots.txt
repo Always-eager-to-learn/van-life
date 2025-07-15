@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Sitempa: https://vanlife-begin.netlify.app/sitemap.xml
+Sitemap: https://vanlife-begin.netlify.app/sitemap.xml
