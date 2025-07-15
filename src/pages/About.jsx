@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import PersonImage from '../assets/person-on-van.png'
+import WebpPerson from '../assets/person-on-van.webp'
 import WindowImage from '../assets/image-of-mountain.jpg'
+import WindowWebp from '../assets/image-of-mountain.webp'
 import styles from './About.module.css'
 import { useMediaQuery } from 'react-responsive'
 
@@ -12,14 +14,22 @@ export default function About(){
 
     return (
         <main className={styles.about_section}>
-            <img src={PersonImage} alt="Image of a person on a van" />
+            <picture>
+                <source type='image/webp' srcSet={WebpPerson} />
+                <img src={PersonImage} alt="Image of a person on a van" />
+            </picture>
+            
             <section className={styles.about_info}>
                 <h1 className='font-big'>Don't squeeze in a sedan when you could relax in a van.</h1>
             </section>
 
             {desktopQuery ? 
                 <div className={styles.desktop_img_container}>
-                    <img src={WindowImage} alt="View of a mountain from a van" className={styles.desktop_img} />
+                    <picture>
+                        <source type='image/webp' srcSet={WindowWebp}/>
+                        <img src={WindowImage} alt="View of a mountain from a van" className={styles.desktop_img} />
+                    </picture>
+                    
                 </div> 
                 : null
             }
