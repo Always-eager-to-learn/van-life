@@ -1,12 +1,11 @@
-let status = false
-
 function setAuthenticationStatus(){
-    status = true
+    localStorage.setItem('loginStatus', 'true')
 }
 
 async function getAuthenticationStatus(){
     return new Promise((resolve) => {
-        if(status === true){
+        const storageData = localStorage.getItem('loginStatus')
+        if(storageData === 'true'){
             resolve(true)
         }
         resolve(false)
@@ -14,7 +13,7 @@ async function getAuthenticationStatus(){
 }
 
 function clearAuthenticationStatus(){
-    // to clear the authentication status
+    localStorage.removeItem('loginStatus')
 }
 
 export { setAuthenticationStatus, getAuthenticationStatus, clearAuthenticationStatus}

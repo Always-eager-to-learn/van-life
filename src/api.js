@@ -1,3 +1,5 @@
+import { setAuthenticationStatus } from "./auth"
+
 async function getVan(id = null){
     const normalUrl = '/api/vans'
     const url = id !== null ? `${normalUrl}/${id}` : normalUrl
@@ -36,7 +38,7 @@ async function getHostVan(id = null){
 async function loginUser(credentials) {
     const stringData = JSON.stringify(credentials)
     const res = await fetch("/api/login",
-        { method: "post", body: JSON.stringify(credentials) }
+        { method: "post", body: stringData }
     )
     const data = await res.json()
 
@@ -48,6 +50,7 @@ async function loginUser(credentials) {
         }
     }
 
+    setAuthenticationStatus()
     return data
 }
 
