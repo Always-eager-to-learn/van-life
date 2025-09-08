@@ -33,4 +33,22 @@ async function getHostVan(id = null){
     return data.vans
 }
 
-export {getVan, getHostVan}
+async function loginUser(credentials) {
+    const stringData = JSON.stringify(credentials)
+    const res = await fetch("/api/login",
+        { method: "post", body: JSON.stringify(credentials) }
+    )
+    const data = await res.json()
+
+    if (!res.ok) {
+        throw {
+            message: data.message,
+            statusText: res.statusText,
+            status: res.status
+        }
+    }
+
+    return data
+}
+
+export {getVan, getHostVan, loginUser}

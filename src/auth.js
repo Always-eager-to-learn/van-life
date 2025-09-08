@@ -1,7 +1,7 @@
-const status = false
+let status = false
 
 function setAuthenticationStatus(){
-    // set the authentication
+    status = true
 }
 
 async function getAuthenticationStatus(){

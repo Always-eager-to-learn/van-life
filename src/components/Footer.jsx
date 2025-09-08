@@ -3,7 +3,7 @@ import './Component.module.css'
 export default function Footer(){
     return (
         <footer>
-                <p>&#169; 2025 #VANLIFE</p>
+                <p className='font-small'>&#169; 2025 #VANLIFE</p>
         </footer>
     )
 }

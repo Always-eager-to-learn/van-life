@@ -47,37 +47,38 @@ input:focus:invalid{
 }
 
 .login_button{
+    --background-color: #6614ad;
     width: 100%;
     padding: 12px;
-    background-color: #FF8C38;
+    background-color: var(--background-color);
     border-radius: 20px;
     box-shadow: 0 1px 2px 0 #0000000D;
-    color: #fff;
+    color: var(--white);
     margin-top: 14px;
     font-weight: 400;
     transition:
         background-color 250ms cubic-bezier(0.165, 0.84, 0.44, 1),
         color 250ms ease-in,
-        font-weight 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        font-weight 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19), outline-offset 300ms ease-in, outline-color 300ms ease-in, 
+        transform 300ms ease-out;
 }
 
-.create_account{
-    margin-block-end: 23px;
+.login_button:focus-visible{
+    outline-offset: 0.2rem;
+    outline-width: 0.35rem;
+    outline-color: rgb(26, 26, 26);
 }
 
-.create_account > a{
-    color: hsl(0, 100%, 65%);
+.login_button:active{
+    transform: scale(0.88);
 }
 
 @media (hover: hover){
     .login_button:hover{
-        background-color: hsla(0, 0%, 97%, 0.985);
-        color: #FF8C38;
-        font-weight: 500;
-    }
-
-    .create_account > a:hover{
-        text-decoration: underline;
+        background-color: var(--white);
+        color: var(--background-color);
+        font-weight: 600;
+        filter: drop-shadow(2px 0 3px rgba(0, 0, 0, 0.4));
     }
 }
 
@@ -92,10 +93,6 @@ input:focus:invalid{
         width: 93%;
         padding: 2%;
         margin-block: 15px;
-    }
-
-    .create_account > a{
-        display: block;
     }
 
     .information_section > h2{
