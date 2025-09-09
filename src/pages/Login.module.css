@@ -21,12 +21,13 @@ input{
     margin-block: 12px;
     outline: 2px solid hsl(0, 0%, 40%);
     width: 97%;
-    padding: 8px;
+    padding: 0.5rem 0.9rem;
     border-radius: 15px;
     outline-offset: 2px;
     border: none;
     background-color: #f0f0f0;;
     color: #2b2b2b;
+    caret-color: var(--brand-color);
     transition: outline 250ms cubic-bezier(0.14, 1, 0.86, 0);
 }
 

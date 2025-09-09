@@ -124,7 +124,7 @@
     }
 
     .desktop_img:hover{
-        transform: scale(1.05);
+        transform: scale(1.01);
         filter: brightness(113%) 
                 drop-shadow(3px 3px 6px hsl(0, 0%, 42%))
                 contrast(104%);

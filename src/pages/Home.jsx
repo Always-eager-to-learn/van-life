@@ -24,7 +24,7 @@ export default function Home(){
                         <h1 className='font-big'>You got the travel plans, we got the travel vans.</h1>
                         <p className='font-medium'>Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip</p>
 
-                        <Link to='/vans'><button className={`${styles.main_button} font-medium`}>Find your van</button></Link>
+                        <Link to='/vans'><button className={`${styles.main_button} font-medium epunda-slab`}>Find your van</button></Link>
                     </div>
                     
                 </div>

@@ -17,11 +17,6 @@ import Details, {loader as detailsLoader} from './pages/host/VanDetail/Details'
 import Pricing, {loader as pricingLoader} from './pages/host/VanDetail/Pricing'
 import Photos, {loader as photosLoader} from './pages/host/VanDetail/Photos'
 import './server'
-import { getAuthenticationStatus } from './auth'
-
-async function displayStatus(){
-    return await getAuthenticationStatus()
-}
 
 export default function App(){
 
@@ -40,12 +35,7 @@ export default function App(){
             <Route path='vans/:id' element={<VanDetail />} loader={vanDetailLoader} />
             <Route path='login' element={<Login />} action={loginAction} loader={loginLoader}/>            
 
-            <Route path='host' element={<HostHeader />} loader={displayStatus} 
-                    shouldRevalidate={({currentUrl, nextUrl}) => {
-                            return !currentUrl.pathname.startsWith('/host') && nextUrl.pathname.startsWith('/host')
-                        }
-                    }
-                > 
+            <Route path='host' element={<HostHeader />}> 
                 <Route index element={<Dashboard />} loader={dashboardLoader} />
                 <Route path='income' element={<Income />} loader={incomeLoader} />
                 <Route path='reviews' element={<Reviews />} loader={reviewsLoader} />
@@ -63,7 +53,7 @@ export default function App(){
 
     const browserRouter = createBrowserRouter(routes)
 
-    // To use the dadta layer apis we use createBrowserRouter
+    // To use the data layer apis we use createBrowserRouter
     return (
         <RouterProvider router={browserRouter}/>
     )

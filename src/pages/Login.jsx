@@ -1,20 +1,15 @@
-import { useLocation, Form, redirect, useActionData, useNavigation } from 'react-router-dom'
+import { Form, useActionData, useNavigation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import styles from './Login.module.css'
 import { loginUser } from '../api'
-import { getAuthenticationStatus } from '../auth'
-
-function returnRedirect(location = ''){
-    const redirectLink = redirect(location)
-    redirectLink.body = true
-    return redirectLink
-}
+import { getAuthenticationStatus, returnRedirect } from '../auth'
 
 export async function action(objData){
     const formData = await objData.request.formData()
     const userEmail = formData.get("email-id")
     const userPassword = formData.get('password')
     try{
-        const data = await loginUser({userEmail, userPassword})
+       await loginUser({userEmail, userPassword})
         return returnRedirect('/host')
     } catch(errorMessage){
         return errorMessage.message
@@ -30,18 +25,26 @@ export async function loader(){
 }
 
 export default function Login(){
-    const status = useNavigation().state
+    const [status, setStatus] = useState(null)
+    const navigationStatus = useNavigation().state
     const error = useActionData()
-    const data = useLocation()
-    const message = data.state !== null && (userData === null || error === null) ? data.state.message : null
+
+    useEffect(() => {
+        const data = sessionStorage.getItem('notification')
+
+        if(data){
+            sessionStorage.removeItem('notification')
+            setStatus(data)
+        }
+    }, [])
 
     return (
         <main>
             <section className={styles.form_design}>
                 <section className={styles.information_section}>
                     <h1 className={`font-big ${styles.center}`}>Sign in to your Account</h1>
-                    {message !== null ? 
-                        <h2 className={`font-semi-big ${styles.center} red weight-500`}>{message}</h2> : null
+                    {status !== null ? 
+                        <h2 className={`font-semi-big ${styles.center} red weight-500`}>{status}</h2> : null
                     }
                     {error !== null ?
                         <h2 className={`font-semi-big red ${styles.center}`}>{error}</h2> : null
@@ -59,8 +62,8 @@ export default function Login(){
                         <input type="password" name="password" id="passwordinfo" required={true} className='font-medium' minLength={3}/>
                     </section>
 
-                    <button className={`font-medium ${styles.login_button} outline-set`} disabled={status === 'idle' ? false : true}>
-                        {status === "idle" ? `Log In` : `Logging In...`}
+                    <button className={`font-medium ${styles.login_button} outline-set`} disabled={navigationStatus === 'idle' ? false : true}>
+                        {navigationStatus === "idle" ? `Log In` : `Logging In...`}
                     </button>
                 </Form>
             </section>

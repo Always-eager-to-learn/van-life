@@ -45,7 +45,7 @@ footer > p{
 }
 
 .nav_section > a:active{
-    transform: scale(0.88);
+    transform: scale(0.85);
 }
 
 .home_link{
@@ -53,10 +53,22 @@ footer > p{
 }
 
 .nav_section .img_logo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     background-color: #FFF7ED;
+    padding: 0.5rem 0.8rem;
     transition: 
         background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955),
-        transform 500ms ease-in-out;
+        transform 300ms ease-out;
+}
+
+.nav_section .img_logo:active{
+    transform: scale(0.85);
+}
+
+.img_logo svg:first-of-type{
+    width: 2.5rem;
 }
 
 .svg{
@@ -134,9 +146,9 @@ footer > p{
 
 @media (hover: hover){
     .nav_section > a.active_link:hover{
-        background-color: #4893b6;
-        color: #ebebeb;
-        box-shadow: 0 0 2px 3px hsl(30, 11%, 79%)
+        background-color: var(--nav-hover-color);
+        color: #f6f6f6;
+        box-shadow: 0.125rem 0 0.3rem 0.2rem var(--nav-hover-box-shadow-color);
     }
 
     .img_logo:hover{
@@ -158,12 +170,6 @@ footer > p{
 
     .logo_active_link:hover{
         background-color: #ffe2be;
-    }
-}
-
-@media (hover: none){
-    .img_logo:active{
-        transform: translateY(2px);
     }
 }
 

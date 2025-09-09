@@ -1,9 +1,9 @@
-import { getAuthenticationStatus } from '../../auth'
+import { getAuthenticationStatus, returnLoginRedirect } from '../../auth'
 
 export async function loader(){
-    const status = getAuthenticationStatus()
+    const status = await getAuthenticationStatus()
     if(!status)
-        return []
+        return returnLoginRedirect()
     
     return null
 }

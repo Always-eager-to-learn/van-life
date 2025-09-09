@@ -1,10 +1,9 @@
-import { getAuthenticationStatus } from '../../auth'
+import { getAuthenticationStatus, returnLoginRedirect } from '../../auth'
 
-// eslint-disable-next-line react-refresh/only-export-components
 export async function loader(){
     const status = await getAuthenticationStatus()
     if(!status)
-        return []
+        return returnLoginRedirect()
 
     return null
 }

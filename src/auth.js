@@ -1,10 +1,13 @@
+import Cookies from 'js-cookie'
+import { redirect } from 'react-router-dom'
+
 function setAuthenticationStatus(){
-    localStorage.setItem('loginStatus', 'true')
+    Cookies.set('loginStatus', 'true', { expires: 1})
 }
 
 async function getAuthenticationStatus(){
     return new Promise((resolve) => {
-        const storageData = localStorage.getItem('loginStatus')
+        const storageData = Cookies.get('loginStatus')
         if(storageData === 'true'){
             resolve(true)
         }
@@ -13,7 +16,18 @@ async function getAuthenticationStatus(){
 }
 
 function clearAuthenticationStatus(){
-    localStorage.removeItem('loginStatus')
+    Cookies.remove('loginStatus')
 }
 
-export { setAuthenticationStatus, getAuthenticationStatus, clearAuthenticationStatus}
+function returnRedirect(location = ''){
+    const redirectLink = redirect(location)
+    redirectLink.body = true
+    return redirectLink
+}
+
+function returnLoginRedirect(location = '/login', message='Please login to access this information'){
+    sessionStorage.setItem('notification', message)
+    return returnRedirect(location)
+}
+
+export { setAuthenticationStatus, getAuthenticationStatus, clearAuthenticationStatus, returnRedirect, returnLoginRedirect}
