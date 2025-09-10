@@ -1,5 +1,4 @@
-import { Form, useActionData, useNavigation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { Form, useActionData, useNavigation, useLoaderData } from 'react-router-dom'
 import styles from './Login.module.css'
 import { loginUser } from '../api'
 import { getAuthenticationStatus, returnRedirect } from '../auth'
@@ -19,24 +18,20 @@ export async function action(objData){
 export async function loader(){
     const authenticationStatus = await getAuthenticationStatus()
     if(!authenticationStatus){
+        const data = sessionStorage.getItem('notification')
+        if(data){
+            sessionStorage.removeItem('notification')
+            return data
+        }
         return null
     }
     return returnRedirect('/')
 }
 
 export default function Login(){
-    const [status, setStatus] = useState(null)
+    const status = useLoaderData()
     const navigationStatus = useNavigation().state
     const error = useActionData()
-
-    useEffect(() => {
-        const data = sessionStorage.getItem('notification')
-
-        if(data){
-            sessionStorage.removeItem('notification')
-            setStatus(data)
-        }
-    }, [])
 
     return (
         <main>

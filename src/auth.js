@@ -1,8 +1,13 @@
 import Cookies from 'js-cookie'
 import { redirect } from 'react-router-dom'
+import { signal } from '@preact/signals-react'
+
+const status = Cookies.get('loginStatus') !== undefined ? 'loggedIn' : 'notLoggedIn'
+export const loginStatusData = signal(status)
 
 function setAuthenticationStatus(){
     Cookies.set('loginStatus', 'true', { expires: 1})
+    loginStatusData.value = 'loggedIn'
 }
 
 async function getAuthenticationStatus(){
@@ -17,6 +22,7 @@ async function getAuthenticationStatus(){
 
 function clearAuthenticationStatus(){
     Cookies.remove('loginStatus')
+    loginStatusData.value = 'notLoggedIn'
 }
 
 function returnRedirect(location = ''){

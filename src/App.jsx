@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 import Login, {action as loginAction, loader as loginLoader} from './pages/Login'
+import { loader as logoutLoader } from './pages/Logout'
 import Vans, {loader as vanLoader} from './pages/vans/Vans'
 import VanDetail, {loader as vanDetailLoader} from './pages/vans/VanDetail'
 import Layout from './components/Layout'
@@ -33,7 +34,8 @@ export default function App(){
 
             <Route path='vans' element={<Vans />} loader={vanLoader}/>
             <Route path='vans/:id' element={<VanDetail />} loader={vanDetailLoader} />
-            <Route path='login' element={<Login />} action={loginAction} loader={loginLoader}/>            
+            <Route path='login' element={<Login />} action={loginAction} loader={loginLoader}/>
+            <Route path='logout' loader={logoutLoader} />       
 
             <Route path='host' element={<HostHeader />}> 
                 <Route index element={<Dashboard />} loader={dashboardLoader} />

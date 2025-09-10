@@ -26,6 +26,7 @@
     --background-color: hsl(37deg 100% 98.18% / 95%);
     --brand-color: #6614ad;
     --nav-hover-color: #8C2155;
+    --nav-background-color: hsl(40deg, 73%, 97%);
     --nav-hover-box-shadow-color: #a6b1d1;
     --blackish: #01161e;
 }
@@ -42,7 +43,7 @@ body{
 }
 
 nav{
-    background-color: hsl(40deg, 73%, 97%);
+    background-color: var(--nav-background-color);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -66,8 +67,11 @@ h1{
 }
 
 p{
-    padding: 15px 20px;
     margin: 0;
+}
+
+footer p{
+    padding: 15px 20px;
 }
 
 a, a:visited{
@@ -88,6 +92,10 @@ input{
 
 .font-semi-big{
     font-size: var(--font-size-3);
+}
+
+.font-medium-big{
+    font-size: calc(var(--font-size-2) + 0.125rem);
 }
 
 .font-medium{
@@ -139,6 +147,14 @@ input{
 .epunda-slab{
     font-family: 'Epunda Slab';
     letter-spacing: 0.015em;
+}
+
+.padding-zero{
+    padding: 0;
+}
+
+.border-radius-1{
+    border-radius: 1rem;
 }
 
 @media (width < 576px) {

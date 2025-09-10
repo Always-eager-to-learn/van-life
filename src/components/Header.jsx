@@ -1,9 +1,9 @@
 import { Link, NavLink } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styles from './Component.module.css'
-import { getAuthenticationStatus } from '../auth'
-import { Settings, ChevronDown } from 'lucide-react'
+import { Settings, ChevronDown, LogIn, UserRound, LogOut } from 'lucide-react'
 import clsx from 'clsx'
+import { loginStatusData as loginStatus } from '../auth'
 
 export default function Header(){
 
@@ -18,23 +18,11 @@ export default function Header(){
             setOpenDialog(false)
     }
 
-    const [loginStatus, setLoginStatus] = useState(null)
     const [openDialog, setOpenDialog] = useState(false)
     const classNames = clsx({
         small_size: true,
         reverse: openDialog === true
     })
-    
-    useEffect(() => {
-        async function setStatus(){
-            const result = await getAuthenticationStatus()
-            let value = false
-            if(result)
-                value = true
-            setLoginStatus(value)
-        }
-        setStatus()
-    }, [])
 
     return (
         <nav>
@@ -50,10 +38,22 @@ export default function Header(){
                     Vans
                 </NavLink>
                 <button className={`${styles.img_logo}`} onClick={setDialogStatus}>
-                    {loginStatus ? null : 
-                       <Settings/>
+                    {loginStatus.value === 'loggedIn' ? <UserRound className={styles.dialog_button}/> : 
+                       <Settings className={styles.dialog_button}/>
                     }
                     <ChevronDown className={classNames}/>
+                    <nav className={`${styles.dialog_bar} padding-zero border-radius-1 ${openDialog ? styles.active : ''}`}>
+                        {loginStatus.value === 'loggedIn' ? 
+                            <NavLink className={`${styles.flex_nav_bar} padding-zero`} to='logout'>
+                                <LogOut className={styles.login_button}/>
+                                <p className={`font-medium-big`}>Logout</p>
+                            </NavLink> :
+                            <NavLink className={`${styles.flex_nav_bar} padding-zero`} to='login'>
+                                <LogIn className={styles.login_button}/>
+                                <p className={`font-medium-big`}>Login</p>
+                            </NavLink>
+                        }
+                    </nav>
                 </button>
             </section>
         </nav>
