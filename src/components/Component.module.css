@@ -56,7 +56,6 @@ footer > p{
     display: flex;
     align-items: center;
     gap: 1rem;
-    position: relative;
     background-color: var(--nav-background-color);
     padding: 0.5rem 0.8rem;
     border-radius: 1rem;
@@ -69,44 +68,33 @@ footer > p{
     height: 2rem;
 }
 
-.svg{
-    width: 100%;
-    height: 100%;
-}
-
-.svg_stroke{
-    stroke: #2b2d42;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-    transition: stroke 150ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+.navigation_section{
+    position: relative;
 }
 
 .dialog_bar{
     position: absolute;
     top: 104%;
     left: -4%;
-    border: 0.1rem solid var(--blackish);
+    border: 0.2rem solid var(--blackish);
     padding-block: 0.5rem;
     z-index: 2;
     visibility: hidden;
-    overflow: hidden;
-    height: 0;
-    interpolate-size: allow-keywords;
-    transition: visibility 200ms ease-out, height 200ms ease-out;
+    transform: scale(1, 0);
+    transform-origin: top center;
+    transition: transform 350ms ease-in-out, visibility 0ms 400ms;
 }
 
 .dialog_bar.active{
-    height: auto;
+    transition-delay: 0s;
     visibility: visible;
+    transform: scale(1, 1);
 }
 
 .flex_nav_bar{
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 0.9rem;
     border-radius: 0.2rem;
     transition: background-color 350ms ease-in-out, opacity 100ms ease-in;
     opacity: 0;
@@ -128,6 +116,15 @@ footer > p{
 
 .flex_nav_bar:active{
     transform: scale(0.88);
+}
+
+.padding_element{
+    padding: 0.5rem 2rem;
+}
+
+.svg{
+    width: 100%;
+    height: 100%;
 }
 
 .host_nav{
@@ -160,10 +157,47 @@ footer > p{
     margin: 0;
 }
 
+.mobile_nav_bar{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    grid-column-start: 3;
+    grid-row: 1;
+    height: 100%;
+    justify-content: center;
+    width: 3rem;
+    background-color: var(--nav-background-color);
+    transition: background-color 350ms ease-in, transform 300ms ease-out;
+}
+
+.mobile_nav_bar:active{
+    transform: scale(0.88);
+}
+
+.mobile_nav_bar div{
+    width: 2rem;
+    height: 0.25rem;
+    background-color: var(--blackish);
+}
+
+.mobile_nav_bar div:nth-child(2){
+    width: 1.5rem;
+}
+
+.mobile_nav_bar div:nth-child(3){
+    width: 1rem;
+}
+
 @media (width < 576px) {
     .nav_section{
         justify-content: center;
         width: 300px;
+        grid-row: 2;
+        grid-column: 2;
+    }
+
+    .home_link{
+        grid-column: 1 / 3;
     }
 
     .back_tick{
@@ -186,6 +220,12 @@ footer > p{
     .svg{
         transform: scale(0.7);
         transform-origin: center;
+    }
+}
+
+@media (576px < width < 640px){
+    .dialog_bar{
+        left: -8%;
     }
 }
 

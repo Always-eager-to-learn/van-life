@@ -1,4 +1,5 @@
 import { setAuthenticationStatus } from "./auth"
+import Cookies from 'js-cookie'
 
 async function getVan(id = null){
     const normalUrl = '/api/vans'
@@ -50,8 +51,17 @@ async function loginUser(credentials) {
         }
     }
 
-    setAuthenticationStatus()
+    setAuthenticationStatus(data.user.name)
     return data
 }
 
-export {getVan, getHostVan, loginUser}
+async function getUserInfo(){
+    const login = Cookies.get('loginStatus')
+    if(login){
+        const dataPackets = await fetch("/api/getUserInfo")
+        const data = await dataPackets.json()
+        return data.users[0]
+    }
+}
+
+export {getVan, getHostVan, loginUser, getUserInfo}

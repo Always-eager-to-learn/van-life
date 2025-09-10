@@ -8,7 +8,7 @@ export async function action(objData){
     const userEmail = formData.get("email-id")
     const userPassword = formData.get('password')
     try{
-       await loginUser({userEmail, userPassword})
+        await loginUser({userEmail, userPassword})
         return returnRedirect('/host')
     } catch(errorMessage){
         return errorMessage.message
@@ -37,7 +37,7 @@ export default function Login(){
         <main>
             <section className={styles.form_design}>
                 <section className={styles.information_section}>
-                    <h1 className={`font-big ${styles.center}`}>Sign in to your Account</h1>
+                    <h1 className={`font-big ${styles.center} blackish`}>Sign in to your Account</h1>
                     {status !== null ? 
                         <h2 className={`font-semi-big ${styles.center} red weight-500`}>{status}</h2> : null
                     }
@@ -48,12 +48,12 @@ export default function Login(){
                 
                 <Form method='POST'>
                     <section className={styles.form_group}>
-                        <label htmlFor="emailid" className='font-semi-big'>Email Address: </label>
+                        <label htmlFor="emailid" className='font-semi-big blackish'>Email Address: </label>
                         <input type="email" name="email-id" id="emailid" required className='font-medium' autoFocus={true}/>    
                     </section>
                     
                     <section className={styles.form_group}>
-                        <label htmlFor="passwordinfo" className='font-semi-big'>Password: </label>
+                        <label htmlFor="passwordinfo" className='font-semi-big blackish'>Password: </label>
                         <input type="password" name="password" id="passwordinfo" required={true} className='font-medium' minLength={3}/>
                     </section>
 

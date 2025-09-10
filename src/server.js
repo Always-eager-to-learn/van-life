@@ -26,7 +26,7 @@ window.server = createServer({
 
     routes() {
         this.namespace = "api"
-        this.logging = false
+        this.logging = true
         // Setting the timing to 1 second to simulate a real server.
         this.timing = 1000
 
@@ -63,6 +63,10 @@ window.server = createServer({
                 user: foundUser,
                 token: "Enjoy your pizza, here's your tokens."
             }
+        })
+
+        this.get("/getUserInfo", (schema, request) => {
+            return schema.users.where({ id: '123'})
         })
     }
 })

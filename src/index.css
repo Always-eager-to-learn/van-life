@@ -22,6 +22,7 @@
 
     --font-size-m-m1-4: 1.5rem;
 
+    --font-buffer: 0.125rem;
     --white: hsl(0, 23%, 97%);
     --background-color: hsl(37deg 100% 98.18% / 95%);
     --brand-color: #6614ad;
@@ -95,7 +96,7 @@ input{
 }
 
 .font-medium-big{
-    font-size: calc(var(--font-size-2) + 0.125rem);
+    font-size: calc(var(--font-size-2) + var(--font-buffer));
 }
 
 .font-medium{
@@ -160,9 +161,8 @@ input{
 @media (width < 576px) {
     nav{
         display: grid;
-        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 3fr 0.5fr;
         justify-content: center;
-        height: 135px;
     }
 
     a, a:visited{
@@ -180,6 +180,10 @@ input{
     
     .font-semi-big{
         font-size: var(--font-size-m-3);
+    }
+
+    .font-medium-big{
+        font-size: calc(var(--font-size-m-2) + var(--font-buffer));
     }
     
     .font-medium{

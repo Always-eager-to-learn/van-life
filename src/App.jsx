@@ -17,7 +17,6 @@ import UserVanDetail, {loader as userVanDetailLoader} from './pages/host/UserVan
 import Details, {loader as detailsLoader} from './pages/host/VanDetail/Details'
 import Pricing, {loader as pricingLoader} from './pages/host/VanDetail/Pricing'
 import Photos, {loader as photosLoader} from './pages/host/VanDetail/Photos'
-import './server'
 
 export default function App(){
 
