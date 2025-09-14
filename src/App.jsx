@@ -7,7 +7,6 @@ import { loader as logoutLoader } from './pages/Logout'
 import Vans, {loader as vanLoader} from './pages/vans/Vans'
 import VanDetail, {loader as vanDetailLoader} from './pages/vans/VanDetail'
 import Layout from './components/Layout'
-import HostHeader from './components/HostHeader'
 import Error from './components/Error'
 import Dashboard, {loader as dashboardLoader} from './pages/host/Dashboard'
 import Income, {loader as incomeLoader} from './pages/host/Income'
@@ -17,6 +16,7 @@ import UserVanDetail, {loader as userVanDetailLoader} from './pages/host/UserVan
 import Details, {loader as detailsLoader} from './pages/host/VanDetail/Details'
 import Pricing, {loader as pricingLoader} from './pages/host/VanDetail/Pricing'
 import Photos, {loader as photosLoader} from './pages/host/VanDetail/Photos'
+import HostHeaderLayout from './components/HostHeaderLayout'
 
 export default function App(){
 
@@ -36,7 +36,7 @@ export default function App(){
             <Route path='login' element={<Login />} action={loginAction} loader={loginLoader}/>
             <Route path='logout' loader={logoutLoader} />       
 
-            <Route path='host' element={<HostHeader />}> 
+            <Route path='host' element={<HostHeaderLayout />}> 
                 <Route index element={<Dashboard />} loader={dashboardLoader} />
                 <Route path='income' element={<Income />} loader={incomeLoader} />
                 <Route path='reviews' element={<Reviews />} loader={reviewsLoader} />

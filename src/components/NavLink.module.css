@@ -1,0 +1,151 @@
+.img_logo{
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    width: 100%;
+    transition: 
+        background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.small_size{
+    width: 30%;
+    transition: transform 350ms ease-in-out;
+}
+
+.small_size.reverse{
+    transform: rotate(180deg);
+}
+
+.img_logo.normal_design{
+    gap: 1rem;
+    background-color: var(--nav-background-color);
+    padding: 0.5rem 0.8rem;
+}
+
+.img_logo.small_design{
+    gap: 2rem;
+    background-color: var(--grayish);
+    padding: 1rem 2.3rem;
+    border: 0.165rem solid var(--blackish);
+}
+
+.img_logo.small_design svg:not(.small_size){
+    width: 1.7rem;
+}
+
+.img_logo.small_design svg.small_size{
+    width: 1rem;
+}
+
+.img_logo .dialog_button{
+    width: 3rem;
+}
+
+.dialog_bar{
+    --__color: var(--color, black);
+    --__width: var(--width, 0.2rem);
+    display: block;
+    padding: 0.5rem 0.7rem;
+    border: var(--__width) solid var(--blackish);
+    visibility: hidden;
+    transform: scale(1, 0);
+    transform-origin: top center;
+    transition: transform 350ms ease-in-out, visibility 0ms 400ms;
+}
+
+.dialog_bar.phone_design{
+    --color: var(--whiteish);
+    background-color: var(--__color);
+    margin-block-start: 0.2rem;
+    --width: 0;
+}
+
+.dialog_bar.desktop_design{
+    --width: 0.2rem;
+    position: absolute;
+    z-index: 2;
+    top: 104%;
+    left: -4%;
+    --color: var(--nav-background-color)
+}
+
+.dialog_bar.active{
+    transition-delay: 0s;
+    visibility: visible;
+    transform: scale(1, 1);
+    background-color: var(--__color);
+}
+
+.flex_nav_bar{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.2rem;
+    transition: background-color 350ms ease-in-out, opacity 100ms ease-in;
+    opacity: 0;
+}
+
+.dialog_bar.phone_design .flex_nav_bar{
+    justify-content: center;
+}
+
+.dialog_bar.active .flex_nav_bar{
+    opacity: 1;
+}
+
+.flex_nav_bar .login_button{
+    height: 1.7rem;
+    width: 2rem;
+    transition: stroke 300ms ease-in-out;
+}
+
+.flex_nav_bar p{
+    transition: color 350ms ease-in;
+}
+
+.flex_nav_bar:active{
+    transform: scale(0.88);
+}
+
+.padding_element{
+    padding: 0.5rem 2rem;
+}
+
+.svg{
+    width: 100%;
+    height: 100%;
+}
+
+@media (576px < width < 640px){
+    .dialog_bar{
+        left: -8%;
+    }
+}
+
+@media (hover: hover){
+    .img_logo:hover{
+        background-color: var(--nav-hover-color);
+    }
+
+    .img_logo:hover > *{
+        color: var(--white);
+    }
+
+    .img_logo:hover > svg{
+        stroke: var(--white);
+    }
+
+    .flex_nav_bar:hover{
+        background-color: var(--nav-hover-color);
+        text-decoration: none;
+    }
+
+    .flex_nav_bar:hover .login_button{
+        stroke: var(--white);
+    }
+
+    .flex_nav_bar:hover p{
+        color: var(--white);
+        text-decoration: none;
+    }
+}

@@ -1,34 +1,46 @@
 import { Link, NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useRef } from 'react'
 import styles from './Component.module.css'
-import { Settings, ChevronDown, LogIn, UserRound, LogOut } from 'lucide-react'
-import clsx from 'clsx'
-import { loginStatusData as loginStatus } from '../auth'
+import loginStyles from './NavLink.module.css'
+import NavButton from './NavButton'
+import HostHeader from './HostHeader'
+import openStatus from './hooks/openStatus'
+import { mediaQuery } from './hooks/mediaQuery'
+import { usecloseNavigation } from './hooks/closeNavigation'
+import NavBar from './NavBar'
+import DesignButton from './DesignButton'
+import { loginStatusData } from '../auth'
+import { LogOut, LogIn } from 'lucide-react'
 import { useSignals } from '@preact/signals-react/runtime'
-import { useMediaQuery } from 'react-responsive'
+import clsx from 'clsx'
 
 export default function Header(){
     useSignals()
-
     function setClassName(object){
         return `${object.isActive ? styles.active_link : ''} font-semi-big`
     }
 
-    function setDialogStatus(){
-        if(!openDialog)
-            setOpenDialog(true)
-        else
-            setOpenDialog(false)
-    }
+    const {openDialogStatus, setOpenStatus} = openStatus()
+    const {isPhone, isDesktop} = mediaQuery()
+    const navigationElement = useRef()
+    usecloseNavigation(navigationElement.current, () => setOpenStatus(3), openDialogStatus.navigationBar)
 
-    const [openDialog, setOpenDialog] = useState(false)
-    const classNames = clsx({
-        small_size: true,
-        reverse: openDialog === true
+    const classNames = loginStyles.login_button
+    const loginStatus = loginStatusData.value.loginStatus
+    const elementDetails = {
+        'icon': loginStatus === 'loggedIn' ? <LogOut className={classNames}/> : <LogIn className={classNames}/>,
+        'welcomeText': loginStatus === 'loggedIn' ? `Welcome, ${loginStatusData.value.userName}` : '',
+        'route': loginStatus === 'loggedIn' ? 'logout' : 'login',
+        'text': loginStatus === 'loggedIn' ? 'Logout' : 'Login'
+    }
+    const classStyles = clsx({
+        [styles.phone_navigation]: true,
+        [styles.active]: openDialogStatus.navigationBar === true
     })
-    const isPhone = useMediaQuery({
-        query: '(max-width: 576px)'
-    })
+    const phoneText = {
+        'firstText': loginStatus === 'loggedIn' ? 'User Profile' : 'Settings',
+        'secondText': 'User Van Info'
+    }
 
     return (
         <nav>
@@ -43,37 +55,54 @@ export default function Header(){
                 <NavLink to='vans' className={setClassName} end={true}>
                     Vans
                 </NavLink>
-                <section className={styles.navigation_section}>
-                    <button className={`${styles.img_logo}`} onClick={setDialogStatus}>
-                        {loginStatus.value.loginStatus === 'loggedIn' ? <UserRound className={styles.dialog_button}/> : 
-                            <Settings className={styles.dialog_button}/>
-                        }
-                        <ChevronDown className={classNames}/>
-                    </button>
-                    <nav className={`${styles.dialog_bar} padding-zero border-radius-1 ${openDialog ? styles.active : ''}`}>
-                        {loginStatus.value.loginStatus === 'loggedIn' ? 
-                            <div>
-                                <p className={`font-medium-big ${styles.padding_element} blackish epunda-slab`}>Welcome, {loginStatus.value.userName}</p>
-                                <NavLink className={`${styles.flex_nav_bar} padding-zero ${styles.padding_element}`} to='logout'>
-                                    <LogOut className={styles.login_button}/>
-                                    <p className={`font-medium-big`}>Logout</p>
-                                </NavLink>
-                            </div>
-                            :
-                            <NavLink className={`${styles.flex_nav_bar} padding-zero ${styles.padding_element}`} to='login'>
-                                <LogIn className={styles.login_button}/>
-                                <p className={`font-medium-big`}>Login</p>
-                            </NavLink>
-                        }
-                    </nav>
-                </section>
+
+                {isDesktop ?
+                    <div className={styles.navigation_section}>
+                        <NavButton 
+                            openDialog={openDialogStatus.settingsBar} 
+                            setDialogStatus={setOpenStatus}
+                        />
+                        <NavBar 
+                            openDialog={openDialogStatus.settingsBar}
+                            elementDetails={elementDetails} 
+
+                        />
+                    </div> : null
+                }
             </section>
             {isPhone ? 
-                <button className={styles.mobile_nav_bar}>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <button className={`${styles.mobile_nav_bar} nav-background-color`} onClick={() => setOpenStatus(3)}>
+                    <DesignButton noOfDivs={3} />
                 </button> : null
+            }
+            {isPhone ?
+                <section className={classStyles} ref={navigationElement}>
+                    <button className={`${styles.close_button} nav-background-color`} onClick={() => setOpenStatus(3)}>
+                       <DesignButton noOfDivs={2} />
+                    </button>
+                    <div>
+                        <NavButton 
+                            isPhoneDesign={true} 
+                            textOnPhone={phoneText.firstText}
+                            openDialog={openDialogStatus.settingsBar}
+                            setDialogStatus={() => setOpenStatus(1)}
+                        />
+                        <NavBar 
+                            openDialog={openDialogStatus.settingsBar}
+                            elementDetails={elementDetails}
+                            isPhoneDesign={true}
+                        />
+                    </div>
+                    <div>
+                        <NavButton 
+                            isPhoneDesign={true}
+                            textOnPhone={phoneText.secondText}
+                            openDialog={openDialogStatus.hostHeaderSet}
+                            setDialogStatus={() => setOpenStatus(2)}
+                        />
+                        <HostHeader isPhoneDesign={true}/>
+                    </div>
+                </section> : null
             }
         </nav>
     )

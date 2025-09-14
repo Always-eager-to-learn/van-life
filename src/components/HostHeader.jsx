@@ -1,29 +1,40 @@
-import { Outlet, NavLink, } from 'react-router-dom'
+import { NavLink, } from 'react-router-dom'
 import styles from './Component.module.css'
+import clsx from 'clsx'
 
-export default function HostHeader(){
+export default function HostHeader({ openDialog, isPhoneDesign }){
 
     function setClassName(obj){
         return `${obj.isActive ? styles.active_link : null} font-semi-big`
     }
 
+    const classNames = clsx({
+        [styles.host_nav]: true
+    })
+
+    const links = {
+        'first': isPhoneDesign ? '/host' : '.',
+        'second': isPhoneDesign ? '/host/income' : 'income',
+        'third': isPhoneDesign ? '/host/vans' : 'vans',
+        'fourth': isPhoneDesign ? '/host/reviews' : 'reviews'
+    }
+
     return (
         <>
-            <nav className={styles.host_nav}>
-                <NavLink to='.' className={setClassName} end >
+            <nav className={classNames}>
+                <NavLink to={links.first} className={setClassName} end >
                     Dashboard
                 </NavLink>
-                <NavLink to='income' className={setClassName}>
+                <NavLink to={links.second} className={setClassName}>
                     Income
                 </NavLink>
-                <NavLink to='vans' className={setClassName}>
+                <NavLink to={links.third} className={setClassName}>
                     Vans
                 </NavLink>
-                <NavLink to='reviews' className={setClassName}>
+                <NavLink to={links.fourth}className={setClassName}>
                     Reviews
                 </NavLink>
             </nav>
-            <Outlet />
         </>
     )
 }

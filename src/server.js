@@ -26,7 +26,7 @@ window.server = createServer({
 
     routes() {
         this.namespace = "api"
-        this.logging = true
+        this.logging = false
         // Setting the timing to 1 second to simulate a real server.
         this.timing = 1000
 
