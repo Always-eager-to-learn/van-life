@@ -15,9 +15,17 @@ footer > p{
 /* Common Name Classes */
 
 .active_link{
-    color: #161616;
     font-weight: 700;
+}
+
+.host_nav .active_normal_link{
+    color: #161616;
     background-color: #ebebeb;
+}
+
+.host_nav .active_phone_link{
+    background-color: var(--phone-active-color);
+    color: var(--blackish);
 }
 
 .bold{

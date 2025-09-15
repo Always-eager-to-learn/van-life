@@ -101,19 +101,17 @@ export default function Header(){
                             isPhoneDesign={true}
                         />
                     </section>
-                    <section className={elementUp}>
-                        { loginStatusData.value.loginStatus ? 
-                            <>
-                                <NavButton 
-                                    isPhoneDesign={isPhone}
-                                    textOnPhone={phoneText.secondText}
-                                    openDialog={openDialogStatus.hostHeaderSet}
-                                    setDialogStatus={() => setOpenStatus(2)}
-                                />
-                                <HostHeader isPhoneDesign={true} openDialog={openDialogStatus.hostHeaderSet}/>
-                            </> : null
-                        }
-                    </section>
+                    {loginStatus === 'loggedIn' ?
+                        <section className={elementUp}>
+                            <NavButton 
+                                isPhoneDesign={isPhone}
+                                textOnPhone={phoneText.secondText}
+                                openDialog={openDialogStatus.hostHeaderSet}
+                                setDialogStatus={() => setOpenStatus(2)}
+                            />
+                            <HostHeader isPhoneDesign={true} openDialog={openDialogStatus.hostHeaderSet}/>
+                        </section> : null
+                    }
                 </section> : null
             }
         </nav>

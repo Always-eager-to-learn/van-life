@@ -6,7 +6,7 @@ import clsx from 'clsx'
 export default function HostHeader({ openDialog, isPhoneDesign }){
 
     function setClassName(obj){
-        return `${obj.isActive ? styles.active_link : null} font-semi-big`
+        return `${obj.isActive ? activeColor : null} font-semi-big`
     }
 
     const classNames = clsx({
@@ -15,6 +15,13 @@ export default function HostHeader({ openDialog, isPhoneDesign }){
         [transitionStyles.active]: openDialog,
         'phone-nav-background': isPhoneDesign,
         [transitionStyles.phone_design]: isPhoneDesign,
+        'border-radius-1': isPhoneDesign
+    })
+
+    const activeColor = clsx({
+        [styles.active_phone_link]: isPhoneDesign,
+        [styles.active_normal_link]: !isPhoneDesign,
+        [styles.active_link]: true,
         'border-radius-1': isPhoneDesign
     })
 

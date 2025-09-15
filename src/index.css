@@ -25,6 +25,7 @@
     --whiteish: hsl(0, 0%, 98%);
     --background-color: hsl(37deg 100% 98.18% / 95%);
     --phone-nav-hover-color: #190E4F;
+    --phone-active-color: #ABD2FA;
     --brand-color: #6614ad;
     --nav-hover-color: #8C2155;
     --nav-background-color: hsl(40deg, 73%, 97%);
@@ -174,8 +175,8 @@ input{
     text-align: center;
 }
 
-.full-width{
-    width: 100%;
+.ch-12-width{
+    width: 12ch;
 }
 
 .phone-nav-background{

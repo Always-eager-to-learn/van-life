@@ -28,7 +28,7 @@ export default function NavButton({ openDialog, setDialogStatus, isPhoneDesign, 
                 <Settings className={styles.dialog_button}/>
             }
             {textOnPhone ?
-                <p className='font-medium epunda-slab weight-500 whiteish'>{textOnPhone}</p> : null
+                <p className='font-medium epunda-slab weight-500 whiteish ch-12-width'>{textOnPhone}</p> : null
             }
             <ChevronDown className={classNames}/>
         </button>

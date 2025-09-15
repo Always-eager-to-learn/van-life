@@ -32,7 +32,10 @@ async function getAuthenticationStatus(){
 
 function clearAuthenticationStatus(){
     Cookies.remove('loginStatus')
-    loginStatusData.value = 'notLoggedIn'
+    loginStatusData.value = {
+        'loginStatus': 'notLoggedIn',
+        'userName': ''
+    }
 }
 
 function returnRedirect(location = ''){
