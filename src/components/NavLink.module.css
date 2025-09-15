@@ -132,12 +132,6 @@
     height: 100%;
 }
 
-@media (576px < width < 640px){
-    .dialog_bar{
-        left: -8%;
-    }
-}
-
 @media (hover: hover){
     .img_logo:hover{
         background-color: var(--nav-hover-color);
