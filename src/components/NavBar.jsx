@@ -5,9 +5,14 @@ import clsx from 'clsx'
 export default function NavBar({ openDialog, elementDetails, isPhoneDesign }){
     const classNames = clsx({
         [styles.dialog_bar]: true,
+        [styles.transition_effect]: true,
         [styles.active]: openDialog,
         [styles.phone_design]: isPhoneDesign,
-        [styles.desktop_design]: !isPhoneDesign
+        [styles.desktop_design]: !isPhoneDesign,
+        'phone-nav-background': isPhoneDesign
+    })
+    const whiteColor = clsx({
+        'whiteish': isPhoneDesign
     })
     return (
         <nav 
@@ -16,7 +21,7 @@ export default function NavBar({ openDialog, elementDetails, isPhoneDesign }){
                 <div>
                     {elementDetails.welcomeText !== '' ? 
                         <p 
-                            className={`font-medium-big ${styles.padding_element} blackish epunda-slab`}
+                            className={`font-medium-big ${styles.padding_element} blackish epunda-slab ${whiteColor}`}
                         >{elementDetails.welcomeText}</p> : null
                     }
                     <NavLink 

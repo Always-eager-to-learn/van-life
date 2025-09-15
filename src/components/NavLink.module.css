@@ -1,3 +1,15 @@
+.element_transform{
+    transition: transform 350ms ease-in;
+}
+
+.element_up{
+    transform: translateY(-65%);
+}
+
+.element_down{
+    transform: translateY(0);
+}
+
 .img_logo{
     display: flex;
     align-items: center;
@@ -8,7 +20,7 @@
 }
 
 .small_size{
-    width: 30%;
+    width: 45%;
     transition: transform 350ms ease-in-out;
 }
 
@@ -17,16 +29,16 @@
 }
 
 .img_logo.normal_design{
-    gap: 1rem;
+    gap: 1.7rem;
     background-color: var(--nav-background-color);
     padding: 0.5rem 0.8rem;
 }
 
 .img_logo.small_design{
     gap: 2rem;
-    background-color: var(--grayish);
-    padding: 1rem 2.3rem;
-    border: 0.165rem solid var(--blackish);
+    background-color: var(--brand-color);
+    padding: 1rem 1.7rem;
+    color: var(--white);
 }
 
 .img_logo.small_design svg:not(.small_size){
@@ -38,14 +50,18 @@
 }
 
 .img_logo .dialog_button{
-    width: 3rem;
+    width: 2.8rem;
 }
 
 .dialog_bar{
-    --__color: var(--color, black);
-    --__width: var(--width, 0.2rem);
     display: block;
     padding: 0.5rem 0.7rem;
+}
+
+.transition_effect{
+    --__color: var(--color, black);
+    --__width: var(--width, 0.2rem);
+    background-color: var(--__color);
     border: var(--__width) solid var(--blackish);
     visibility: hidden;
     transform: scale(1, 0);
@@ -53,9 +69,14 @@
     transition: transform 350ms ease-in-out, visibility 0ms 400ms;
 }
 
-.dialog_bar.phone_design{
-    --color: var(--whiteish);
-    background-color: var(--__color);
+.transition_effect.active{
+    transition-delay: 0s;
+    visibility: visible;
+    transform: scale(1, 1);
+}
+
+.dialog_bar.phone_design,
+.phone_design{
     margin-block-start: 0.2rem;
     --width: 0;
 }
@@ -65,15 +86,8 @@
     position: absolute;
     z-index: 2;
     top: 104%;
-    left: -4%;
+    left: -39%;
     --color: var(--nav-background-color)
-}
-
-.dialog_bar.active{
-    transition-delay: 0s;
-    visibility: visible;
-    transform: scale(1, 1);
-    background-color: var(--__color);
 }
 
 .flex_nav_bar{
@@ -85,8 +99,10 @@
     opacity: 0;
 }
 
-.dialog_bar.phone_design .flex_nav_bar{
+.dialog_bar.phone_design .flex_nav_bar,
+.phone_design a{
     justify-content: center;
+    color: var(--whiteish);
 }
 
 .dialog_bar.active .flex_nav_bar{

@@ -5,7 +5,8 @@ export default function openStatus(){
         if(number == 1)
             setOpenDialogStatus((value) => {
                 return {...value,
-                'settingsBar': !value.settingsBar
+                'settingsBar': !value.settingsBar,
+                'navigateDown': !value.navigateDown
             }})
         
         else if(number == 2)
@@ -23,6 +24,7 @@ export default function openStatus(){
 
     const [openDialogStatus, setOpenDialogStatus] = useState({
         'settingsBar': false,
+        'navigateDown': false,
         'hostHeaderSet': false,
         'navigationBar': false
     })

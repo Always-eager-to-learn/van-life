@@ -24,6 +24,7 @@
     --white: hsl(0, 23%, 97%);
     --whiteish: hsl(0, 0%, 98%);
     --background-color: hsl(37deg 100% 98.18% / 95%);
+    --phone-nav-hover-color: #190E4F;
     --brand-color: #6614ad;
     --nav-hover-color: #8C2155;
     --nav-background-color: hsl(40deg, 73%, 97%);
@@ -40,7 +41,6 @@ body{
     font-family: 'Hanken Grotesk';
     background-color: hsl(280, 2%, 66%);
     margin: 0;
-    padding: 4px;
 }
 
 nav{
@@ -159,6 +159,27 @@ input{
 
 .nav-background-color{
     background-color: transparent;
+}
+
+.whiteish{
+    color: var(--whiteish);
+}
+
+.grid-align-self{
+    display: flex;
+    align-items: center;
+}
+
+.center{
+    text-align: center;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.phone-nav-background{
+    --color: var(--phone-nav-hover-color);
 }
 
 @media (width < 576px) {

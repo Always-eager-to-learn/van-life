@@ -41,6 +41,11 @@ export default function Header(){
         'firstText': loginStatus === 'loggedIn' ? 'User Profile' : 'Settings',
         'secondText': 'User Van Info'
     }
+    const elementUp = clsx({
+        [loginStyles.element_transform]: isPhone,
+        [loginStyles.element_up]: isPhone && !openDialogStatus.navigateDown,
+        [loginStyles.element_down]: isPhone && openDialogStatus.navigateDown
+    })
 
     return (
         <nav>
@@ -60,7 +65,7 @@ export default function Header(){
                     <div className={styles.navigation_section}>
                         <NavButton 
                             openDialog={openDialogStatus.settingsBar} 
-                            setDialogStatus={setOpenStatus}
+                            setDialogStatus={() => setOpenStatus(1)}
                         />
                         <NavBar 
                             openDialog={openDialogStatus.settingsBar}
@@ -77,12 +82,15 @@ export default function Header(){
             }
             {isPhone ?
                 <section className={classStyles} ref={navigationElement}>
-                    <button className={`${styles.close_button} nav-background-color`} onClick={() => setOpenStatus(3)}>
-                       <DesignButton noOfDivs={2} />
-                    </button>
-                    <div>
+                    <section className='grid-align-self'>
+                        <button className={`${styles.close_button} nav-background-color`} onClick={() => setOpenStatus(3)}>
+                        <DesignButton noOfDivs={2} />
+                        </button>
+                        <p className='font-medium center full-width'>Menu</p>
+                    </section>
+                    <section>
                         <NavButton 
-                            isPhoneDesign={true} 
+                            isPhoneDesign={isPhone} 
                             textOnPhone={phoneText.firstText}
                             openDialog={openDialogStatus.settingsBar}
                             setDialogStatus={() => setOpenStatus(1)}
@@ -92,16 +100,20 @@ export default function Header(){
                             elementDetails={elementDetails}
                             isPhoneDesign={true}
                         />
-                    </div>
-                    <div>
-                        <NavButton 
-                            isPhoneDesign={true}
-                            textOnPhone={phoneText.secondText}
-                            openDialog={openDialogStatus.hostHeaderSet}
-                            setDialogStatus={() => setOpenStatus(2)}
-                        />
-                        <HostHeader isPhoneDesign={true}/>
-                    </div>
+                    </section>
+                    <section className={elementUp}>
+                        { loginStatusData.value.loginStatus ? 
+                            <>
+                                <NavButton 
+                                    isPhoneDesign={isPhone}
+                                    textOnPhone={phoneText.secondText}
+                                    openDialog={openDialogStatus.hostHeaderSet}
+                                    setDialogStatus={() => setOpenStatus(2)}
+                                />
+                                <HostHeader isPhoneDesign={true} openDialog={openDialogStatus.hostHeaderSet}/>
+                            </> : null
+                        }
+                    </section>
                 </section> : null
             }
         </nav>

@@ -14,7 +14,8 @@ export default function NavButton({ openDialog, setDialogStatus, isPhoneDesign, 
     const buttonStyles = clsx({
         [styles.img_logo]: true,
         [styles.normal_design]: !isPhoneDesign,
-        [styles.small_design]: isPhoneDesign
+        [styles.small_design]: isPhoneDesign,
+        'whiteish': isPhoneDesign
     })
 
     return (
@@ -27,7 +28,7 @@ export default function NavButton({ openDialog, setDialogStatus, isPhoneDesign, 
                 <Settings className={styles.dialog_button}/>
             }
             {textOnPhone ?
-                <p className='font-medium epunda-slab weight-500'>{textOnPhone}</p> : null
+                <p className='font-medium epunda-slab weight-500 whiteish'>{textOnPhone}</p> : null
             }
             <ChevronDown className={classNames}/>
         </button>
