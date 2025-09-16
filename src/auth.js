@@ -46,7 +46,9 @@ function returnRedirect(location = ''){
 
 function returnLoginRedirect(location = '/login', message='Please login to access this information'){
     sessionStorage.setItem('notification', message)
-    return returnRedirect(location)
+    const url = new URL(location)
+    const sentLocation = `/login?redirectTo=${url.pathname}`
+    return returnRedirect(sentLocation)
 }
 
 export { setAuthenticationStatus, getAuthenticationStatus, clearAuthenticationStatus, returnRedirect, returnLoginRedirect}

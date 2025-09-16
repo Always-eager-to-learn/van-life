@@ -5,11 +5,14 @@ import { getAuthenticationStatus, returnRedirect } from '../auth'
 
 export async function action(objData){
     const formData = await objData.request.formData()
+    const url = objData.request.url
+    const queryParam = new URL(url).searchParams.get('redirectTo')
+    const sendLocation = queryParam !== null ? queryParam : '/host'
     const userEmail = formData.get("email-id")
     const userPassword = formData.get('password')
     try{
         await loginUser({userEmail, userPassword})
-        return returnRedirect('/host')
+        return returnRedirect(sendLocation)
     } catch(errorMessage){
         return errorMessage.message
     }

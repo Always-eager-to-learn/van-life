@@ -78,7 +78,6 @@ footer p{
 
 a, a:visited{
     text-decoration: none;
-    font-size: var(--font-size-2);
     color: rgb(85, 26, 139);
 }
 
@@ -239,6 +238,10 @@ input{
 
     .font-semi-big{
         font-size: var(--font-size-m1-3);
+    }
+
+    .font-medium-big{
+        font-size: calc(var(--font-size-m1-2) + var(--font-buffer));
     }
     
     .font-medium{

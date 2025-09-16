@@ -3,10 +3,10 @@ import styles from './UserVans.module.css'
 import { getHostVan } from '../../api'
 import { getAuthenticationStatus, returnLoginRedirect } from '../../auth'
 
-export async function loader(){
+export async function loader({ request }){
     const status = await getAuthenticationStatus()
     if(!status)
-        return returnLoginRedirect()
+        return returnLoginRedirect(request.url)
     
     return getHostVan()
 }

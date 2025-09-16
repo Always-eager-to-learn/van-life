@@ -61,10 +61,11 @@
 .transition_effect{
     --__color: var(--color, black);
     --__width: var(--width, 0.2rem);
+    --_extra: var(--extra);
     background-color: var(--__color);
     border: var(--__width) solid var(--blackish);
     visibility: hidden;
-    transform: scale(1, 0);
+    transform: scale(1, 0) var(--_extra);
     transform-origin: top center;
     transition: transform 350ms ease-in-out, visibility 0ms 400ms;
 }
@@ -72,13 +73,14 @@
 .transition_effect.active{
     transition-delay: 0s;
     visibility: visible;
-    transform: scale(1, 1);
+    transform: scale(1, 1) var(--_extra);
 }
 
 .dialog_bar.phone_design,
 .phone_design{
     margin-block-start: 0.2rem;
     --width: 0;
+    --extra: translateX(0);
 }
 
 .dialog_bar.desktop_design{
@@ -86,7 +88,7 @@
     position: absolute;
     z-index: 2;
     top: 104%;
-    left: -39%;
+    --extra: translateX(-40%);
     --color: var(--nav-background-color)
 }
 

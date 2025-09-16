@@ -5,10 +5,10 @@ import clsx from 'clsx'
 import { getHostVan } from '../../api'
 import { getAuthenticationStatus, returnLoginRedirect } from "../../auth"
 
-export async function loader({ params }){
+export async function loader({ params, request }){
     const status = await getAuthenticationStatus()
     if(!status)
-        return returnLoginRedirect()
+        return returnLoginRedirect(request.url)
     
     return getHostVan(params.id)
 }

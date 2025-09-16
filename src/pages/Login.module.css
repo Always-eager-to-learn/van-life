@@ -92,7 +92,6 @@ input:focus:invalid{
     input{
         margin-left: 5%;
         width: 93%;
-        padding: 2%;
         margin-block: 15px;
     }
 
