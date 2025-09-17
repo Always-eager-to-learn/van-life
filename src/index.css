@@ -153,6 +153,10 @@ input{
     padding: 0;
 }
 
+.padding-0-3{
+    padding: 0.3rem;
+}
+
 .border-radius-1{
     border-radius: 1rem;
 }

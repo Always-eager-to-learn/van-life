@@ -55,7 +55,7 @@
 
 .dialog_bar{
     display: block;
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem 1.2rem;
 }
 
 .transition_effect{
@@ -84,7 +84,7 @@
 }
 
 .dialog_bar.desktop_design{
-    --width: 0.2rem;
+    --width: 0.17rem;
     position: absolute;
     z-index: 2;
     top: 104%;
