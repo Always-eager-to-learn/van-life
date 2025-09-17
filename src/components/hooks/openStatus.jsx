@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function openStatus(){
+export function useopenStatus(){
     function setOpenStatus(number){
         if(number == 1)
             setOpenDialogStatus((value) => {

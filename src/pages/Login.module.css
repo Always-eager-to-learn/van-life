@@ -21,7 +21,7 @@ input{
     margin-block: 12px;
     outline: 2px solid hsl(0, 0%, 40%);
     width: 97%;
-    padding: 0.5rem 0.9rem;
+    padding: 0.5em 0.9em;
     border-radius: 15px;
     outline-offset: 2px;
     border: none;

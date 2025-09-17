@@ -172,7 +172,6 @@ footer > p{
 @media (width < 576px) {
     .nav_section{
         justify-content: center;
-        width: 300px;
         grid-row: 2;
         grid-column: 2;
     }
